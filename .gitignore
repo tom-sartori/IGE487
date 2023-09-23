@@ -2,4 +2,4 @@
 .idea/
 .vscode/
 
-scripts/make_full_script.sh
+scripts/full_script.sql
