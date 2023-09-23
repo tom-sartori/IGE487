@@ -1,0 +1,124 @@
+Table mesure {
+  valeur ssqa.mesure_valeur
+  valide boolean
+  station ssqa.station_code
+  moment ssqa.estampille
+  variable ssqa.variable_code
+
+  Indexes {
+    (station, moment, variable) [pk, name: 'Mesure_cc0']
+  }
+}
+Ref Mesure_cr0: mesure.(station, variable) - capacite.(station, variable)
+
+Table capacite {
+  station ssqa.station_code
+  variable ssqa.variable_code
+
+  Indexes {
+    (station, variable) [pk, name: 'Capacite_cc0']
+  }
+}
+Ref Capacite_cr0: capacite.station - station.code
+Ref Capacite_cr1: capacite.variable - variable.code
+
+Table station {
+  nom ssqa.station_nom
+  longitude ssqa.longitude
+  latitude ssqa.latitude
+  altitude ssqa.altitude
+  code ssqa.station_code
+
+  Indexes {
+    code [pk, name: 'Station_cc0']
+    nom [unique, name: 'Station_cc1']
+  }
+}
+
+Table distribution {
+  territoire ssqa.territoire_code
+  station ssqa.station_code
+
+  Indexes {
+    (territoire, station) [pk, name: 'Distribution_cc0']
+  }
+}
+Ref Distribution_cr0: distribution.station - station.code
+Ref Distribution_cr1: distribution.territoire - territoire.code
+
+Table territoire {
+  nom ssqa.territoire_nom
+  code ssqa.territoire_code
+
+  Indexes {
+    code [pk, name: 'Territoire_cc0']
+    nom [unique, name: 'Territoire_cc1']
+  }
+}
+
+Table variable {
+  nom ssqa.variable_nom
+  unite ssqa.unite_symbole
+  valref ssqa.mesure_valeur
+  methode text
+  code ssqa.variable_code
+
+  Indexes {
+    code [pk, name: 'Variable_cc0']
+    nom [unique, name: 'Variable_cc1']
+  }
+}
+Ref Variable_cr0: variable.unite - unite.sym
+
+Table seuils {
+  min ssqa.mesure_valeur
+  max ssqa.mesure_valeur
+  variable ssqa.variable_code
+  norme ssqa.norme_code
+
+  Indexes {
+    (variable, norme) [pk, name: 'Seuils_cc0']
+  }
+}
+Ref Seuils_cr0: seuils.variable - variable.code
+Ref Seuils_cr1: seuils.norme - norme.code
+// constraint Seuils_min_max check (min <= max)
+
+Table norme {
+  titre ssqa.norme_titre
+  code ssqa.norme_code
+
+  Indexes {
+    code [pk, name: 'Norme_cc0']
+    titre [unique, name: 'Norme_cc1']
+  }
+}
+
+Table exigence {
+  variable ssqa.variable_code
+  periode_valeur ssqa.mesure_valeur
+  periode_unite ssqa.unite_symbole
+  min ssqa.mesure_valeur
+  max ssqa.mesure_valeur
+  norme ssqa.norme_code
+  code ssqa.exigence_code
+
+  Indexes {
+    (norme, code) [pk, name: 'Exigence_cc0']
+    (norme, variable, periode_unite, periode_valeur) [unique, name: 'Exigence_cc1']
+  }
+}
+Ref Exigence_cr0: exigence.variable - variable.code
+Ref Exigence_cr1: exigence.norme - norme.code
+Ref Exigence_cr2: exigence.(periode_unite) - unite.sym
+// constraint Exigence_min_max check (min <= max)
+
+Table unite {
+  nom ssqa.unite_nom
+  sym ssqa.unite_symbole
+
+  Indexes {
+    sym [pk, name: 'Unite_cc0']
+    nom [unique, name: 'Unite_cc1']
+  }
+}
