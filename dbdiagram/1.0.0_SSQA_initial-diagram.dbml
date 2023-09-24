@@ -28,6 +28,8 @@ Table station {
   latitude ssqa.latitude
   altitude ssqa.altitude
   code ssqa.station_code
+  debut_service ssqa.estampille
+  fin_service ssqa.estampille
 
   Indexes {
     code [pk, name: 'Station_cc0']
@@ -122,3 +124,36 @@ Table unite {
     nom [unique, name: 'Unite_cc1']
   }
 }
+
+Table hors_service {
+  station ssqa.station_code
+  debut ssqa.estampille
+  fin ssqa.estampille
+  nature ssqa.hors_service_code
+
+  Indexes{
+    (station, debut) [pk, name: 'Hors_service_cc0']
+  }
+}
+Ref Hors_service_cr0: hors_service.station - station.code
+
+Table mobilite {
+  station ssqa.station_code
+  est_mobile ssqa.boolean
+
+  Indexes {
+    station [pk, name: 'Mobilite_cc0']
+  }
+}
+Ref Mobilite_cr0: mobilite.station - station.code
+
+Table immatriculation {
+  station ssqa.station_code
+  immatriculation ssqa.immatriculation
+
+  Indexes {
+    station [pk, name: 'Immatriculation_cc0']
+  }
+}
+Ref Immatriculation_cr0: immatriculation.station - station.code
+
