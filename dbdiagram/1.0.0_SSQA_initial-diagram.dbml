@@ -119,9 +119,18 @@ Ref Exigence_cr2: exigence.(periode_unite) - unite.sym
 Table unite {
   nom ssqa.unite_nom
   sym ssqa.unite_symbole
+  masse_exp ssqa.tinyint
+  temps_exp ssqa.tinyint
+  longueur_exp ssqa.tinyint
+  temperature_exp ssqa.tinyint
+  intensite_elec_exp ssqa.tinyint
+  qqte_matiere_exp ssqa.tinyint
+  intensite_lumi_exp ssqa.tinyint
+  mult ssqa.double
+  add ssqa.double
 
   Indexes {
-    sym [pk, name: 'Unite_cc0']
+    (sym, masse_exp, temps_exp, longueur_exp, temperature_exp, intensite_elec_exp, qqte_matiere_exp, intensite_lumi_exp, mult, add) [pk, name: 'Unite_cc0']
     nom [unique, name: 'Unite_cc1']
   }
 }
