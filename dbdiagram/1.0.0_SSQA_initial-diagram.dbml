@@ -1,6 +1,5 @@
 Table mesure {
   valeur ssqa.mesure_valeur
-  valide boolean
   station ssqa.station_code
   moment ssqa.estampille
   variable ssqa.variable_code
@@ -11,6 +10,12 @@ Table mesure {
   }
 }
 Ref Mesure_cr0: mesure.(station, variable) - capacite.(station, variable)
+Ref Mesure_cr1: mesure.erreur - erreur_mesure.code
+
+Table erreur_mesure {
+  code ssqa.erreur_code
+  description ssqa.description_erreur
+}
 
 Table capacite {
   station ssqa.station_code
@@ -24,7 +29,6 @@ Ref Capacite_cr0: capacite.station - station.code
 Ref Capacite_cr1: capacite.variable - variable.code
 
 Table station {
-  nom ssqa.station_nom
   code ssqa.station_code
   debut_service ssqa.estampille
   fin_service ssqa.estampille
@@ -32,12 +36,20 @@ Table station {
 
   Indexes {
     code [pk, name: 'Station_cc0']
-    nom [unique, name: 'Station_cc1']
+  }
+}
+Ref Station_cc0: station.code - station_nom.code
+
+Table station_nom {
+  code ssqa.station_code
+  nom ssqa.station_nom
+
+  Indexes{
+    code [pk, name: 'Station_nom_cc0']
   }
 }
 
 Table position{
-  id id
   longitude ssqa.longitude
   latitude ssqa.latitude
   altitude ssqa.altitude
@@ -45,9 +57,10 @@ Table position{
   debut ssqa.estampille
   fin ssqa.estampille
   Indexes{
-    id [pk, name:'Position_cc0']
+    (station, debut) [pk, name:'Position_cc0']
   }
 }
+Ref Position_cr0: position.station - station.code
 
 Table distribution {
   territoire ssqa.territoire_code
@@ -139,19 +152,25 @@ Table unite {
   }
 }
 
-Table composition{
-  unite ssqa.unite_nom
-  fondamentale ssqa.unite_fond
+Table composition_unite{
+  symbole_unite_composite ssqa.unite_symbole
+  symbole_unite_fondamentale ssqa.unite_symbole
   exposant ssqa.tinyint
 
   Indexes{
-    (unite, fondamentale) [pk, name: 'Composition_cc0']
+    (symbole_unite_composite, symbole_unite_fondamentale) [pk, name: 'Composition_unite_cc0']
   }
 }
+Ref Composition_unite_cr0: unite_fond.symbole - composition_unite.symbole_unite_fondamentale
+Ref Composition_unite_cr1: composition_unite.symbole_unite_composite - unite.sym
 
 Table unite_fond{
-  nom ssqa.unite_fond
-  sym ssqa.unite_symbole
+  nom ssqa.unite_nom
+  symbole ssqa.unite_symbole
+
+  Indexes {
+    (symbole) [pk, name: 'Unite_fond_cc0']
+  }
 }
 
 Table hors_service {
@@ -161,10 +180,16 @@ Table hors_service {
   nature ssqa.hors_service_code
 
   Indexes{
-    (station, debut, fin, nature) [pk, name: 'Hors_service_cc0']
+    (station, debut, nature) [pk, name: 'Hors_service_cc0']
   }
 }
 Ref Hors_service_cr0: hors_service.station - station.code
+Ref Hors_service_cr1: hors_service.nature - nature_hors_service.code
+
+Table nature_hors_service {
+  code ssqa.hors_service_code
+  description ssqa.description_hors_service
+}
 
 Table immatriculation {
   station ssqa.station_code
@@ -175,9 +200,3 @@ Table immatriculation {
   }
 }
 Ref Immatriculation_cr0: immatriculation.station - station.code
-
-Ref: "unite_fond"."nom" < "composition"."fondamentale"
-
-Ref: "composition"."unite" > "unite"."nom"
-
-Ref: "position"."station" < "station"."code"
