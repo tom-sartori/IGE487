@@ -1,25 +1,25 @@
 Table mesure {
   valeur ssqa.mesure_valeur
   valide boolean
-  station ssqa.station_code
+  station_code ssqa.station_code
   moment ssqa.estampille
   variable ssqa.variable_code
 
   Indexes {
-    (station, moment, variable) [pk, name: 'Mesure_cc0']
+    (station_code, moment, variable) [pk, name: 'Mesure_cc0']
   }
 }
-Ref Mesure_cr0: mesure.(station, variable) - capacite.(station, variable)
+Ref Mesure_cr0: mesure.(station_code, variable) - capacite.(station_code, variable)
 
 Table capacite {
-  station ssqa.station_code
+  station_code ssqa.station_code
   variable ssqa.variable_code
 
   Indexes {
-    (station, variable) [pk, name: 'Capacite_cc0']
+    (station_code, variable) [pk, name: 'Capacite_cc0']
   }
 }
-Ref Capacite_cr0: capacite.station - station.code
+Ref Capacite_cr0: capacite.station_code - station.code
 Ref Capacite_cr1: capacite.variable - variable.code
 
 Table station {
@@ -37,6 +37,10 @@ Table station {
     nom [unique, name: 'Station_cc1']
   }
 }
+// constraint station_début_fin check (debut_service < fin_service)
+// constraint altitude_min_max  check ( -12000 <altitude< 8848)
+// constraint latitude_min_max check (-90 <latitude< 90)
+// constraint longitude_min_max check (-180 <latitude< 180)
 
 Table distribution {
   territoire ssqa.territoire_code
@@ -73,18 +77,18 @@ Table variable {
 }
 Ref Variable_cr0: variable.unite - unite.sym
 
-Table seuils {
+Table validation {
   min ssqa.mesure_valeur
   max ssqa.mesure_valeur
   variable ssqa.variable_code
   norme ssqa.norme_code
 
   Indexes {
-    (variable, norme) [pk, name: 'Seuils_cc0']
+    (variable, norme) [pk, name: 'validation_cc0']
   }
 }
-Ref Seuils_cr0: seuils.variable - variable.code
-Ref Seuils_cr1: seuils.norme - norme.code
+Ref validation_cr0: validation.variable - variable.code
+Ref validation_cr1: validation.norme - norme.code
 // constraint Seuils_min_max check (min <= max)
 
 Table norme {
@@ -128,6 +132,7 @@ Table unite {
   intensite_lumi_exp ssqa.tinyint
   mult ssqa.double
   add ssqa.double
+ 
 
   Indexes {
     (sym, masse_exp, temps_exp, longueur_exp, temperature_exp, intensite_elec_exp, qqte_matiere_exp, intensite_lumi_exp, mult, add) [pk, name: 'Unite_cc0']
@@ -146,14 +151,17 @@ Table hors_service {
   }
 }
 Ref Hors_service_cr0: hors_service.station - station.code
+// constraint hors_service_début_fin (debut< fin)
+
 
 Table immatriculation {
-  station ssqa.station_code
+  station_code ssqa.station_code
   immatriculation ssqa.immatriculation
 
   Indexes {
-    station [pk, name: 'Immatriculation_cc0']
+    station_code [pk, name: 'Immatriculation_cc0']
   }
 }
-Ref Immatriculation_cr0: immatriculation.station - station.code
+Ref Immatriculation_cr0: immatriculation.station_code - station.code
+
 
