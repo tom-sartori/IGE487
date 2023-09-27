@@ -1,32 +1,30 @@
 Table mesure {
   valeur ssqa.mesure_valeur
   valide boolean
-  station_code ssqa.station_code
+  station ssqa.station_code
   moment ssqa.estampille
   variable ssqa.variable_code
+  erreur ssqa.erreur_code
 
   Indexes {
-    (station_code, moment, variable) [pk, name: 'Mesure_cc0']
+    (station, moment, variable) [pk, name: 'Mesure_cc0']
   }
 }
-Ref Mesure_cr0: mesure.(station_code, variable) - capacite.(station_code, variable)
+Ref Mesure_cr0: mesure.(station, variable) - capacite.(station, variable)
 
 Table capacite {
-  station_code ssqa.station_code
+  station ssqa.station_code
   variable ssqa.variable_code
 
   Indexes {
-    (station_code, variable) [pk, name: 'Capacite_cc0']
+    (station, variable) [pk, name: 'Capacite_cc0']
   }
 }
-Ref Capacite_cr0: capacite.station_code - station.code
+Ref Capacite_cr0: capacite.station - station.code
 Ref Capacite_cr1: capacite.variable - variable.code
 
 Table station {
   nom ssqa.station_nom
-  longitude ssqa.longitude
-  latitude ssqa.latitude
-  altitude ssqa.altitude
   code ssqa.station_code
   debut_service ssqa.estampille
   fin_service ssqa.estampille
@@ -37,10 +35,19 @@ Table station {
     nom [unique, name: 'Station_cc1']
   }
 }
-// constraint station_début_fin check (debut_service < fin_service)
-// constraint altitude_min_max  check ( -12000 <altitude< 8848)
-// constraint latitude_min_max check (-90 <latitude< 90)
-// constraint longitude_min_max check (-180 <latitude< 180)
+
+Table position{
+  id id
+  longitude ssqa.longitude
+  latitude ssqa.latitude
+  altitude ssqa.altitude
+  station ssqa.station_code
+  debut ssqa.estampille
+  fin ssqa.estampille
+  Indexes{
+    id [pk, name:'Position_cc0']
+  }
+}
 
 Table distribution {
   territoire ssqa.territoire_code
@@ -67,7 +74,7 @@ Table variable {
   nom ssqa.variable_nom
   unite ssqa.unite_symbole
   valref ssqa.mesure_valeur
-  methode text
+  methode ssqa.methode_codification_code
   code ssqa.variable_code
 
   Indexes {
@@ -84,11 +91,11 @@ Table validation {
   norme ssqa.norme_code
 
   Indexes {
-    (variable, norme) [pk, name: 'validation_cc0']
+    (variable, norme) [pk, name: 'Seuils_cc0']
   }
 }
-Ref validation_cr0: validation.variable - variable.code
-Ref validation_cr1: validation.norme - norme.code
+Ref Seuils_cr0: validation.variable - variable.code
+Ref Seuils_cr1: validation.norme - norme.code
 // constraint Seuils_min_max check (min <= max)
 
 Table norme {
@@ -123,21 +130,28 @@ Ref Exigence_cr2: exigence.(periode_unite) - unite.sym
 Table unite {
   nom ssqa.unite_nom
   sym ssqa.unite_symbole
-  masse_exp ssqa.tinyint
-  temps_exp ssqa.tinyint
-  longueur_exp ssqa.tinyint
-  temperature_exp ssqa.tinyint
-  intensite_elec_exp ssqa.tinyint
-  qqte_matiere_exp ssqa.tinyint
-  intensite_lumi_exp ssqa.tinyint
   mult ssqa.double
   add ssqa.double
- 
 
   Indexes {
-    (sym, masse_exp, temps_exp, longueur_exp, temperature_exp, intensite_elec_exp, qqte_matiere_exp, intensite_lumi_exp, mult, add) [pk, name: 'Unite_cc0']
+    (sym, mult, add) [pk, name: 'Unite_cc0']
     nom [unique, name: 'Unite_cc1']
   }
+}
+
+Table composition{
+  unite ssqa.unite_nom
+  fondamentale ssqa.unite_fond
+  exposant ssqa.tinyint
+
+  Indexes{
+    (unite, fondamentale) [pk, name: 'Composition_cc0']
+  }
+}
+
+Table unite_fond{
+  nom ssqa.unite_fond
+  sym ssqa.unite_symbole
 }
 
 Table hors_service {
@@ -147,21 +161,23 @@ Table hors_service {
   nature ssqa.hors_service_code
 
   Indexes{
-    (station, debut) [pk, name: 'Hors_service_cc0']
+    (station, debut, fin, nature) [pk, name: 'Hors_service_cc0']
   }
 }
 Ref Hors_service_cr0: hors_service.station - station.code
-// constraint hors_service_début_fin (debut< fin)
-
 
 Table immatriculation {
-  station_code ssqa.station_code
+  station ssqa.station_code
   immatriculation ssqa.immatriculation
 
   Indexes {
-    station_code [pk, name: 'Immatriculation_cc0']
+    station [pk, name: 'Immatriculation_cc0']
   }
 }
-Ref Immatriculation_cr0: immatriculation.station_code - station.code
+Ref Immatriculation_cr0: immatriculation.station - station.code
 
+Ref: "unite_fond"."nom" < "composition"."fondamentale"
 
+Ref: "composition"."unite" > "unite"."nom"
+
+Ref: "position"."station" < "station"."code"
