@@ -1,25 +1,44 @@
 Table mesure {
-  valeur ssqa.mesure_valeur
-  station ssqa.station_code
-  moment ssqa.estampille
-  variable ssqa.variable_code
-  erreur ssqa.erreur_code
+  valeur ssqa.mesure_valeur [null]
+  station ssqa.station_code [not null]
+  moment ssqa.estampille [not null]
+  variable ssqa.variable_code [not null]
 
   Indexes {
     (station, moment, variable) [pk, name: 'Mesure_cc0']
   }
+  Note: '\
+  If mesure.valeur is null, then it must have a tuple in erreur_mesure. 
+  Value of "variable", must appear in table "capacite", for this "station". 
+  '
 }
 Ref Mesure_cr0: mesure.(station, variable) - capacite.(station, variable)
-Ref Mesure_cr1: mesure.erreur - erreur_mesure.code
 
 Table erreur_mesure {
-  code ssqa.erreur_code
-  description ssqa.description_erreur
+  station ssqa.station_code [not null]
+  moment ssqa.estampille [not null]
+  variable ssqa.variable_code [not null]
+  erreur_mesure_code ssqa.erreur_mesure_code_code [not null]
+
+  Indexes {
+    (station, moment, variable, erreur_mesure_code) [pk, name: 'Erreur_mesure_cc0']
+  }
+}
+Ref Erreur_mesure_cr0: erreur_mesure.(station, moment, variable) - mesure.(station, moment, variable)
+Ref Erreur_mesure_cr1: erreur_mesure.erreur_mesure_code - erreur_mesure_code.code
+
+Table erreur_mesure_code {
+  code ssqa.erreur_mesure_code_code [not null]
+  description ssqa.erreur_mesure_code_description [not null]
+
+  Indexes {
+    code [pk, name: 'Erreur_mesure_code_cc0']
+  }
 }
 
 Table capacite {
-  station ssqa.station_code
-  variable ssqa.variable_code
+  station ssqa.station_code [not null]
+  variable ssqa.variable_code [not null]
 
   Indexes {
     (station, variable) [pk, name: 'Capacite_cc0']
@@ -29,42 +48,44 @@ Ref Capacite_cr0: capacite.station - station.code
 Ref Capacite_cr1: capacite.variable - variable.code
 
 Table station {
-  code ssqa.station_code
-  debut_service ssqa.estampille
-  fin_service ssqa.estampille
-  mobilite ssqa.boolean
+  code ssqa.station_code [not null]
+  debut_service ssqa.estampille [not null]
+  fin_service ssqa.estampille [null]
+  mobilite ssqa.boolean [not null]
 
   Indexes {
     code [pk, name: 'Station_cc0']
   }
 }
-Ref Station_cc0: station.code - station_nom.code
 
 Table station_nom {
-  code ssqa.station_code
-  nom ssqa.station_nom
+  code ssqa.station_code [not null]
+  nom ssqa.station_nom [not null]
 
   Indexes{
     code [pk, name: 'Station_nom_cc0']
   }
 }
+Ref Station_nom_cr0: station_nom.code - station.code
 
-Table position{
-  longitude ssqa.longitude
-  latitude ssqa.latitude
-  altitude ssqa.altitude
-  station ssqa.station_code
-  debut ssqa.estampille
-  fin ssqa.estampille
-  Indexes{
+Table position {
+  longitude ssqa.longitude [not null]
+  latitude ssqa.latitude [not null]
+  altitude ssqa.altitude [not null]
+  station ssqa.station_code [not null]
+  debut ssqa.estampille [not null]
+  fin ssqa.estampille [null]
+
+  Indexes {
     (station, debut) [pk, name:'Position_cc0']
   }
+  Note: 'station.debut_service <= position.debut < position.fin <= station.fin_service'
 }
 Ref Position_cr0: position.station - station.code
 
 Table distribution {
-  territoire ssqa.territoire_code
-  station ssqa.station_code
+  territoire ssqa.territoire_code [not null]
+  station ssqa.station_code [not null]
 
   Indexes {
     (territoire, station) [pk, name: 'Distribution_cc0']
@@ -74,8 +95,8 @@ Ref Distribution_cr0: distribution.station - station.code
 Ref Distribution_cr1: distribution.territoire - territoire.code
 
 Table territoire {
-  nom ssqa.territoire_nom
-  code ssqa.territoire_code
+  nom ssqa.territoire_nom [not null]
+  code ssqa.territoire_code [not null]
 
   Indexes {
     code [pk, name: 'Territoire_cc0']
@@ -147,7 +168,7 @@ Table unite {
   add ssqa.double
 
   Indexes {
-    (sym, mult, add) [pk, name: 'Unite_cc0']
+    sym [pk, name: 'Unite_cc0']
     nom [unique, name: 'Unite_cc1']
   }
 }
@@ -174,21 +195,26 @@ Table unite_fond{
 }
 
 Table hors_service {
-  station ssqa.station_code
-  debut ssqa.estampille
-  fin ssqa.estampille
-  nature ssqa.hors_service_code
+  station ssqa.station_code [not null]
+  debut ssqa.estampille [not null]
+  fin ssqa.estampille [not null]
+  nature ssqa.hors_service_code [not null]
 
-  Indexes{
+  Indexes {
     (station, debut, nature) [pk, name: 'Hors_service_cc0']
   }
+  Note: 'station.debut_service < hors_service.debut < hors_service.fin < station.fin_service'
 }
 Ref Hors_service_cr0: hors_service.station - station.code
 Ref Hors_service_cr1: hors_service.nature - nature_hors_service.code
 
 Table nature_hors_service {
-  code ssqa.hors_service_code
-  description ssqa.description_hors_service
+  code ssqa.hors_service_code [not null]
+  description ssqa.description_hors_service [not null]
+
+  Indexes {
+    code [pk, name: 'Nature_hors_service_cc0']
+  }
 }
 
 Table immatriculation {
