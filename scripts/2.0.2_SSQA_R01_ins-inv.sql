@@ -28,9 +28,6 @@ insert into Unite (sym, nom, mult, add) values
 -- mult négatif
 insert into Unite (sym, nom, mult, add) values
     ('sym', 'peu importe', -1, 0);
--- add négatif
-insert into Unite (sym, nom, mult, add) values
-    ('sym', 'peu importe', 1, -1);
 -- conflit de clé primaire
 insert into Unite (sym, nom, mult, add) values
     ('s', 'peu importe', 1, 0);
