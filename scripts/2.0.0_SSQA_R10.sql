@@ -1,8 +1,8 @@
 set schema 'SSQA';
 
 create table Erreur_mesure (
-    station integer not null,
-    moment date not null,
+    station Station_Code not null,
+    moment not null,
     variable integer not null,
     erreur_mesure_code integer not null,
     constraint Erreur_mesure_cc0 primary key (station, moment, variable, erreur_mesure_code),
