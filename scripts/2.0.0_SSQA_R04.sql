@@ -13,4 +13,8 @@ alter table exigence add constraint exigence_cc1 check (min < max);
 
 alter table exigence add constraint exigence_cc3 check ( min<exigence.min and exigence.max<max where min,max=(select min,max from validation where idVariable=exigence.idVariable));
 
+--Ajout contraînte pour la table mesure
+
+alter table mesure add constraint mesure_cr1 check ( moment<datedébut and datefin<moment where datedébut,datefin=(select datedébut,datefin from Hors_service where idStation=mesure.idStation)); 
+
 
