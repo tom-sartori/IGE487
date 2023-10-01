@@ -6,21 +6,21 @@ create table HorsService (
     dateDebut date not null,
     dateFin date not null,
     motif integer not null,
-    primary key (idStation, dateDebut, motif),
+   constraint primary key (idStation, dateDebut, motif),
     foreign key (idStation) references Station(idStation),
-    foreign key (motif) references nature_Hors_service(idMotif)
+    foreign key (motif) references nature_Hors_service(code)
 );
 -- Nature Hors service
 create table nature_Hors_service (
-    idMotif integer not null,
+    code integer not null,
     nom varchar(50) not null,
-    primary key (idMotif)
+    constraint Nature_hors_service_cc0 primary key (code)
 );
 -- Station nom
 create table Station_nom (
     idStation integer not null,
     nom varchar(50) not null,
-    primary key (idStation),
+    constraint Station_nom_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
 );
 -- Erreur mesure
@@ -29,7 +29,7 @@ create table erreur_mesure (
     moment date not null,
     variable integer not null,
     erreur_mesure_code integer not null,
-    primary key (station, moment, variable, erreur_mesure_code),
+    constraint Erreur_mesure_cc0 primary key (station, moment, variable, erreur_mesure_code),
     foreign key (station) references Station(idStation),
     
     foreign key (variable) references Variable(idVariable),
@@ -40,7 +40,7 @@ create table erreur_mesure (
 create table erreur_mesure_code (
     code integer not null,
     nom varchar(50) not null,
-    primary key (code)
+    constraint Erreur_mesure_code_cc0 primary key (code)
 );
 -- immatriculation
 create table immatriculation (
@@ -54,7 +54,7 @@ create table immatriculation (
 create table distribution (
     idStation integer not null,
     idTerritoire integer not null,
-    primary key (idStation, idTerritoire),
+    constraint Distribution_cc0 primary key (idStation, idTerritoire),
     foreign key (idStation) references Station(idStation),
     foreign key (idTerritoire) references Territoire(idTerritoire)
 );
