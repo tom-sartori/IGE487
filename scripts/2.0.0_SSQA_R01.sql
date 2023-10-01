@@ -11,7 +11,7 @@ create table Unite_fond (
     constraint Unite_fond_cc0 primary key (symbole)
 );
 
-create table Composite_unite (
+create table Composition_unite (
     symbole_unite_composite integer not null,
     symbole_unite_fond integer not null,
     exposant integer not null,
