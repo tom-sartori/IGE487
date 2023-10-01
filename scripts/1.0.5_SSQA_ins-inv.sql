@@ -52,6 +52,7 @@ set schema 'SSQA';
 -- Norme
 
 -- Seuils
+
 -- conflit min max 
   insert into Seuils (idNorme, idVariable, min, max) values
     (1, 1, 10, 0) ;
