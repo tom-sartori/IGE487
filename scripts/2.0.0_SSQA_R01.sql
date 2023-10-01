@@ -6,8 +6,8 @@ alter table unite add column adds double precision  ;
 alter table unite add constraint unite_cr1 check (mult is not null or adds is not null);
 
 create table Unite_fond (
-    symbole integer not null,
-    nom varchar(512) not null,
+    symbole Unite_Symbole not null,
+    nom Unite_Nom not null,
     constraint Unite_fond_cc0 primary key (symbole)
 );
 
