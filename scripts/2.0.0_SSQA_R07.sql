@@ -8,17 +8,17 @@ create table Station_nom (
 );
 
 create table Position (
-    idStation integer not null,
-    latitude float not null,
-    longitude float not null,
-    debut date not null,
-    fin date not null,
+    idStation Station_Code not null,
+    latitude Latitude not null,
+    longitude Longitude not null,
+    debut Estampille not null,
+    fin Estampille not null,
     constraint Position_cc0 primary key (idStation, debut),
     foreign key (idStation) references Station(idStation)
 );
 
 create table Immatriculation (
-    idStation integer not null,
+    idStation Station_Code not null,
     immatriculation varchar(50) not null,
     constraint immatriculation_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
