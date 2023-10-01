@@ -1,10 +1,13 @@
 set schema 'SSQA';
 
+alter table Station add column mobile boolean not null;
+
 create table Station_nom (
     idStation Station_Code not null,
     nom Station_Nom not null,
     constraint Station_nom_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
+    constraint Station_nom_cc1 check (nom is not null where idStation=Station.idStation and Station.mobile=true) 
 );
 
 create table Position (
