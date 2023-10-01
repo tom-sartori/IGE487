@@ -7,13 +7,13 @@ alter table station add constraint Station_cc0 check (fin_service is null or fin
 create domains Motif_code 
 as integer not null;
 create table Hors_service (
-    idStation Station_Code not null,
-    dateDebut Estampille not null,
-    dateFin Estampille not null,
+    station Station_Code not null,
+    débutbut Estampille not null,
+    fin Estampille not null,
     nature Motif_code not null,
-   constraint Hors_service_cc0 primary key (idStation, dateDebut, motif),
-    foreign key (idStation) references Station(idStation),
-    foreign key (motif) references nature_Hors_service(code)
+   constraint Hors_service_cc0 primary key (station, début,nature),
+    foreign key (idStation) references Station(code),
+    foreign key (nature) references nature_Hors_service(code)
     constraint Hors_service_cc1 check (dateFin > dateDebut)
 
 );
