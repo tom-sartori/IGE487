@@ -1,5 +1,7 @@
 set schema 'SSQA';
-
+--Ajout attribut dans la table unite
+alter table unite add column mult integer ;
+alter table unite add column adds integer ;
 
 create table Unite_fond (
     symbole integer not null,

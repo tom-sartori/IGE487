@@ -20,6 +20,9 @@ create table Position (
 create table Immatriculation (
     idStation integer not null,
     immatriculation varchar(50) not null,
-    primary key (idStation),
+    constraint immatriculation_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
 );
+
+alter table Station drop column latitude;
+alter table Station drop column longitude;
