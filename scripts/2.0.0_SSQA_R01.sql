@@ -13,10 +13,10 @@ create table Unite_fond (
 
 create table Composition_unite (
     symbole_unite_composite integer not null,
-    symbole_unite_fond integer not null,
+    symbole_unite_fondamentale integer not null,
     exposant integer not null,
-    constraint Composite_unite_cc0 primary key (symbole_unite_composite, symbole_unite_fond),
+    constraint Composite_unite_cc0 primary key (symbole_unite_composite, symbole_unite_fondamentale),
     foreign key (symbole_unite_composite) references unite(symbole),
-    foreign key (symbole_unite_fond) references unite_fond(symbole)
+    foreign key (symbole_unite_fondamentale) references unite_fond(symbole)
 
 );
