@@ -58,3 +58,32 @@ create table distribution (
     foreign key (idStation) references Station(idStation),
     foreign key (idTerritoire) references Territoire(idTerritoire)
 );
+
+-- Création table position 
+create table position (
+    idStation integer not null,
+    latitude float not null,
+    longitude float not null,
+    debut date not null,
+    fin date not null,
+    constraint Position_cc0 primary key (idStation, debut),
+    foreign key (idStation) references Station(idStation)
+);
+
+-- creation table unite_fond
+
+create table unite_fond (
+    symbole integer not null,
+    nom varchar(50) not null,
+    constraint Unite_fond_cc0 primary key (symbole)
+);
+-- creation table composite unite
+
+create table composite_unite (
+    symbole_unite_composite integer not null,
+    symbole_unite_fond integer not null,
+    exposant integer not null,
+    constraint Composite_unite_cc0 primary key (symbole_unite_composite, symbole_unite_fond),
+    foreign key (symbole_unite_composite) references unite(symbole),
+    foreign key (symbole_unite_fond) references unite_fond(symbole)
+);
