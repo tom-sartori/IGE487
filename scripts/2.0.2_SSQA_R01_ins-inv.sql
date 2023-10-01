@@ -11,26 +11,26 @@ au préalable.
 
 -- Unite
 -- symbole trop long
-  insert into Unite (sym, nom, mult, add) values
+insert into Unite (sym, nom, mult, add) values
     ('symbole vraiment trop long pour être pratique', 'peu importe', 1, 0);
 -- symbole null
-    insert into Unite (sym, nom, mult, add) values
-        (null, 'peu importe', 1, 0);
+insert into Unite (sym, nom, mult, add) values
+    (null, 'peu importe', 1, 0);
 -- nom null
-    insert into Unite (sym, nom, mult, add) values
-        ('sym', null, 1, 0);
+insert into Unite (sym, nom, mult, add) values
+    ('sym', null, 1, 0);
 -- mult null
-    insert into Unite (sym, nom, mult, add) values
-        ('sym', 'peu importe', null, 0);
+insert into Unite (sym, nom, mult, add) values
+    ('sym', 'peu importe', null, 0);
 -- add null
-    insert into Unite (sym, nom, mult, add) values
-        ('sym', 'peu importe', 1, null);
+insert into Unite (sym, nom, mult, add) values
+    ('sym', 'peu importe', 1, null);
 -- mult négatif
-    insert into Unite (sym, nom, mult, add) values
-        ('sym', 'peu importe', -1, 0);
+insert into Unite (sym, nom, mult, add) values
+    ('sym', 'peu importe', -1, 0);
 -- add négatif
-    insert into Unite (sym, nom, mult, add) values
-        ('sym', 'peu importe', 1, -1);
+insert into Unite (sym, nom, mult, add) values
+    ('sym', 'peu importe', 1, -1);
 -- conflit de clé primaire
-    insert into Unite (sym, nom, mult, add) values
-        ('s', 'peu importe', 1, 0);
+insert into Unite (sym, nom, mult, add) values
+    ('s', 'peu importe', 1, 0);
