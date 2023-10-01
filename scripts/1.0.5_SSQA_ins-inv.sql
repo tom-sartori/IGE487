@@ -39,13 +39,23 @@ set schema 'SSQA';
     ('an', 'année') ;
 
 -- Variable
+-- conflit de clé primaire (idVariable)
+  insert into Variable (idVariable, nom, idUnite) values
+    (1, 'température', 1) ;
+-- conflit de clé secondaire (nom)
+  insert into Variable (idVariable, nom, idUnite) values
+    (2, 'température', 2) ;
+-- conflit de clé secondaire (idUnite)
+  insert into Variable (idVariable, nom, idUnite) values
+    (3, 'humidité', 1) ;
 
 -- Norme
 
 -- Seuils
-
+-- conflit min max 
+  insert into Seuils (idNorme, idVariable, min, max) values
+    (1, 1, 10, 0) ;
 -- Station
-
 -- Capacité
 
 -- Territoire

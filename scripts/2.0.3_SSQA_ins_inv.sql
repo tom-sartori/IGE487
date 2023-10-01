@@ -81,7 +81,7 @@ VALUES (NULL, 17, '2023-09-01', 43);
 
 --capacité
 
--- conflit mesure avec capcité null
+-- conflit mesure avec capacité null
     insert into mesure (idMesure, valeur, station, moment, variable) values
         (16, 1, 1, '2017-01-01', 1) ;
     insert into capacite (idStation, variable) values
@@ -92,4 +92,40 @@ VALUES (NULL, 17, '2023-09-01', 43);
 -- conflit avec le min et max 
     insert into exigence (idNorme,idUnite, periode_unité, idVariable, min, max) values
         (1, 1, 'jour', 1, 1, 0) ;
+
+--distribution
+
+-- conflit avec le nom du territoire
+    insert into distribution (idStation, idTerritoire) values
+        (1, 1) ;
+    insert into territoire_nom (idTerritoire, nom) values
+        (1, NULL) ;
+
+--nature_hors_service
+
+-- conflit avec le nom du motif
+    insert into nature_hors_service (idMotif, nom) values
+        (1, NULL) ;
+
+--immatriculation
+
+-- conflit avec le nom de l'immatriculation
+    insert into immatriculation (idStation, immatriculation) values
+        (1, NULL) ;
+
+--variable
+
+--normes
+
+-- capacité
+
+-- erreur_mesure_code
+
+-- exigence
+
+--erreur_mesure
+
+--mesure
+
+
 

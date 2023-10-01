@@ -1,6 +1,6 @@
 set schema 'SSQA';
 
--- Hors service
+-- Création table Hors service
 create table HorsService (
     idStation integer not null,
     dateDebut date not null,
@@ -10,20 +10,20 @@ create table HorsService (
     foreign key (idStation) references Station(idStation),
     foreign key (motif) references nature_Hors_service(code)
 );
--- Nature Hors service
+-- Création table  Nature Hors service
 create table nature_Hors_service (
     code integer not null,
     nom varchar(50) not null,
     constraint Nature_hors_service_cc0 primary key (code)
 );
--- Station nom
+-- Création table Station nom
 create table Station_nom (
     idStation integer not null,
     nom varchar(50) not null,
     constraint Station_nom_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
 );
--- Erreur mesure
+-- Création table Erreur mesure
 create table erreur_mesure (
     station integer not null,
     moment date not null,
@@ -36,13 +36,13 @@ create table erreur_mesure (
     foreign key (erreur_mesure_code) references erreur_mesure_code(code)    
 )
 ;
--- Erreur mesure code
+-- Création table Erreur mesure code
 create table erreur_mesure_code (
     code integer not null,
     nom varchar(50) not null,
     constraint Erreur_mesure_code_cc0 primary key (code)
 );
--- immatriculation
+-- Création table immatriculation
 create table immatriculation (
     idStation integer not null,
     immatriculation varchar(50) not null,
@@ -50,7 +50,7 @@ create table immatriculation (
     foreign key (idStation) references Station(idStation)
 );
 
---distribution
+-- Création table distribution
 create table distribution (
     idStation integer not null,
     idTerritoire integer not null,
