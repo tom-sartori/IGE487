@@ -1,8 +1,8 @@
 set schema 'SSQA';
 
 create table Station_nom (
-    idStation integer not null,
-    nom varchar(50) not null,
+    idStation Station_Code not null,
+    nom Station_Nom not null,
     constraint Station_nom_cc0 primary key (idStation),
     foreign key (idStation) references Station(idStation)
 );
@@ -26,3 +26,5 @@ create table Immatriculation (
 
 alter table Station drop column latitude;
 alter table Station drop column longitude;
+alter table Station drop column nom;
+
