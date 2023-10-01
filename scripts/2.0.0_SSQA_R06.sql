@@ -10,7 +10,7 @@ create table Hors_service (
     idStation Station_Code not null,
     dateDebut Estampille not null,
     dateFin Estampille not null,
-    motif Motif_code not null,
+    nature Motif_code not null,
    constraint Hors_service_cc0 primary key (idStation, dateDebut, motif),
     foreign key (idStation) references Station(idStation),
     foreign key (motif) references nature_Hors_service(code)
@@ -20,7 +20,7 @@ create table Hors_service (
 
 create table Nature_Hors_service (
     code Motif_code not null,
-    nom varchar(50) not null,
+    descriptions varchar(50) not null,
     constraint Nature_hors_service_cc0 primary key (code)
 
 );
