@@ -42,4 +42,19 @@ create table erreur_mesure_code (
     nom varchar(50) not null,
     primary key (code)
 );
+-- immatriculation
+create table immatriculation (
+    idStation integer not null,
+    immatriculation varchar(50) not null,
+    primary key (idStation),
+    foreign key (idStation) references Station(idStation)
+);
 
+--distribution
+create table distribution (
+    idStation integer not null,
+    idTerritoire integer not null,
+    primary key (idStation, idTerritoire),
+    foreign key (idStation) references Station(idStation),
+    foreign key (idTerritoire) references Territoire(idTerritoire)
+);
