@@ -20,7 +20,7 @@ create table Hors_service (
 
 create table Nature_Hors_service (
     code Motif_code not null,
-    descriptions varchar(50) not null,
+    description varchar(50) not null,
     constraint Nature_hors_service_cc0 primary key (code)
 
 );
