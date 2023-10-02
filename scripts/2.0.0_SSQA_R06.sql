@@ -13,7 +13,7 @@ create domain Hors_service_code
 as integer not null;
 
 create domain Description_hors_service
-as varchar(128) not null;
+as varchar(255) not null;
 
 create table Nature_Hors_service (
     code Hors_service_code not null,
