@@ -1,6 +1,6 @@
 set schema 'SSQA';
 
--- Empty table since we can't use old data
+-- Vide la table car les anciennes données ne sont plus valides
 drop table if exists Unite cascade;
 
 create table Unite (
