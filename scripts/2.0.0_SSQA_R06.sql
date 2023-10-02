@@ -8,13 +8,13 @@ create domains Motif_code
 as integer not null;
 create table Hors_service (
     station Station_Code not null,
-    débutbut Estampille not null,
+    debut Estampille not null,
     fin Estampille not null,
     nature Motif_code not null,
-   constraint Hors_service_cc0 primary key (station, début,nature),
+   constraint Hors_service_cc0 primary key (station, debut,nature),
     foreign key (idStation) references Station(code),
     foreign key (nature) references nature_Hors_service(code)
-    constraint Hors_service_cc1 check (dateFin > dateDebut)
+    constraint Hors_service_cc1 check (fin > debut)
 
 );
 
