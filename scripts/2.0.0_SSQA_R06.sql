@@ -1,6 +1,8 @@
+-- Définition du schéma
+create schema if not exists "SSQA";
 set schema 'SSQA';
 
---cAjout attribut debut_service et fin_service dans la table station
+-- Ajout attribut debut_service et fin_service dans la table station
 alter table Station add column debut_service Estampille;
 alter table Station add column fin_service Estampille;
 

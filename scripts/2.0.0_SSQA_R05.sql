@@ -1,5 +1,6 @@
+-- Définition du schéma
+create schema if not exists "SSQA";
 set schema 'SSQA';
-
 -- Vide la table car les anciennes données ne sont plus valides
 drop table if exists Variable cascade;
 
