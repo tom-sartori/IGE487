@@ -1,3 +1,17 @@
+/*
+-- =========================================================================== A
+-- SSQA_R10.sql
+-- ---------------------------------------------------------------------------
+Activité : IFT187_2023-1
+Encodage : UTF-8, sans BOM; fin de ligne Unix (LF)
+Plateforme : PostgreSQL 12 à 15
+Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
+Version : 1.0.0
+Statut : en vigueur
+Résumé : Rendre la valeur d’une mesure facultative, en cas d’absence s’assurer d’en conserver la cause.
+-- =========================================================================== A
+*/
+
 set schema 'SSQA';
 
 create domain Code_erreur_mesure as integer;
@@ -26,3 +40,19 @@ insert into Erreur_mesure (station, moment, variable, erreur_mesure_code)
 
 -- Suppression de la colonne 'valide' de la table Mesure
 alter table Mesure drop column valide;
+
+/*
+-- =========================================================================== Z
+Contributeurs :
+    capl1101 louis-vincent.capelli@usherbrooke.ca
+    sart0701 tom.sartori@usherbrooke.ca
+    thea1804 alexandre.theisse@usherbrooke.ca
+    turr3004 raphael.turcotte2@usherbrooke.ca
+
+Tâches réalisées :
+  2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Rendre la valeur d’une mesure facultative, en cas d’absence s’assurer d’en conserver la cause.
+
+-- -----------------------------------------------------------------------------
+-- SSQA_R10.sql
+-- =========================================================================== Z
+*/

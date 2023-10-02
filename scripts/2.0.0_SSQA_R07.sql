@@ -1,3 +1,17 @@
+/*
+-- =========================================================================== A
+-- SSQA_R07.sql
+-- ---------------------------------------------------------------------------
+Activité : IFT187_2023-1
+Encodage : UTF-8, sans BOM; fin de ligne Unix (LF)
+Plateforme : PostgreSQL 12 à 15
+Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
+Version : 1.0.0
+Statut : en vigueur
+Résumé : Modification du schéma afin de pouvoir consigner l’évolution des coordonnées des stations.
+-- =========================================================================== A
+*/
+
 -- Définition du schéma
 create schema if not exists "SSQA";
 set schema 'SSQA';
@@ -5,7 +19,10 @@ set schema 'SSQA';
 -- Création attribut mobilité
 alter table Station add column mobilite boolean;
 
--- Création table Position
+-- Position
+--
+-- La position d'une station est modélisée par un code de station, une latitude, une longitude, une altitude, une date de début et une date de fin.
+--
 create table Position (
     station Station_Code not null,
     latitude Latitude not null,
@@ -35,3 +52,21 @@ create table Immatriculation (
     constraint immatriculation_cc0 primary key (station),
     constraint immatriculation_cr0 foreign key (station) references Station(code)
 );
+
+/*
+-- =========================================================================== Z
+Contributeurs :
+    capl1101 louis-vincent.capelli@usherbrooke.ca
+    sart0701 tom.sartori@usherbrooke.ca
+    thea1804 alexandre.theisse@usherbrooke.ca
+    turr3004 raphael.turcotte2@usherbrooke.ca
+
+Tâches réalisées :
+  2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Ajout de l'attribut mobilité à la table Station.
+  2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Ajout des tables Position et Immatriculation.
+  2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Ajout des contraintes de Position et Immatriculation.
+
+-- -----------------------------------------------------------------------------
+-- SSQA_RO7.sql
+-- =========================================================================== Z
+*/
