@@ -9,7 +9,7 @@ create table Unite (
     mult double precision not null,
     add double precision not null,
     constraint Unite_cc0 primary key (sym),
-    constraint Unite_cc1 check (mult >= 0)
+    constraint Unite_mult_positif check (mult >= 0)
 );
 
 create table Unite_fond (
