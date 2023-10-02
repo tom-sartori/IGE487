@@ -15,6 +15,6 @@ alter table exigence add constraint exigence_cc3 check ( min<exigence.min and ex
 
 --Ajout contraînte pour la table mesure
 
-alter table mesure add constraint mesure_cr1 check ( moment<datedébut and datefin<moment where datedébut,datefin=(select début,fin from Hors_service where station=mesure.station)); 
+alter table mesure add constraint mesure_cr1 check ( moment<debut and dfin<moment where debut,fin=(select debut,fin from Hors_service where station=mesure.station)); 
 
 
