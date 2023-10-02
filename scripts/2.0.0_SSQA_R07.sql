@@ -25,7 +25,7 @@ select code, latitude, longitude, altitude, now() from Station;
 -- Suppression des attributs de la table Station
 alter table Station drop column latitude;
 alter table Station drop column longitude;
-alter table Station drop column nom;
+alter table Station drop column altitude;
 
 create domain Immatricumation_code as varchar(50);
 
