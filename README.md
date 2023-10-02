@@ -1,13 +1,13 @@
-# IGE487
+# IGE487 - Modélisation de bases de données
 
 ## Contributeurs
 
-|   CIP    |                 Mail                 |
-|:--------:|:------------------------------------:|
-| thea1804 |   alexandre.theisse@usherbrooke.ca   |
-| capl1101 | louis-vincent.capelli@usherbrooke.ca |
-| sart0701 |      tom.sartori@usherbrooke.ca      |
-| turr3004 |   raphael.turcotte2@usherbrooke.ca   |
+|          Nom          |   CIP    |                                        Mail                                         |
+|:---------------------:|:--------:|:-----------------------------------------------------------------------------------:|
+|   Alexandre Theisse   | thea1804 |     [alexandre.theisse@usherbrooke.ca](mailto:alexandre.theisse@usherbrooke.ca)     |
+| Louis-Vincent Capelli | capl1101 | [louis-vincent.capelli@usherbrooke.ca](mailto:louis-vincent.capelli@usherbrooke.ca) |
+|   Raphael Turcotte    | turr3004 |     [raphael.turcotte2@usherbrooke.ca](mailto:raphael.turcotte2@usherbrooke.ca)     |
+|      Tom Sartori      | sart0701 |           [tom.sartori@usherbrooke.ca](mailto:tom.sartori@usherbrooke.ca)           |
 
 ## Note technique
 
