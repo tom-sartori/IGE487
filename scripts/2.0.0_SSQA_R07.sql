@@ -1,37 +1,37 @@
+-- Définition du schéma
+create schema if not exists "SSQA";
 set schema 'SSQA';
 
-alter table Station add column mobile boolean not null;
+-- Création attribut mobilité
+alter table Station add column mobilite boolean;
 
-create table Station_nom (
-    code Station_Code not null,
-    nom Station_Nom not null,
-    constraint Station_nom_cc0 primary key (code),
-    foreign key (code) references Station(code)
-    constraint Station_nom_cc1 check (nom is not null where idStation=Station.idStation and Station.mobile=true) 
-);
-
+-- Création table Position
 create table Position (
     station Station_Code not null,
     latitude Latitude not null,
     longitude Longitude not null,
+    altitude Altitude not null,
     debut Estampille not null,
-    fin Estampille not null,
+    fin Estampille,
     constraint Position_cc0 primary key (station, debut),
-    foreign key (station) references Station(code)
-    constraint Position_cc1 check (fin > debut)
-    constraint Position_cc2 check (latitude is not null and longitude is not null)
-    constraint Position_cc3 check ((Select count(*) from Position where station=Position.station and fin is null)=1)
-    
+    constraint Position_cr0 foreign key (station) references Station(code),
+    constraint Position_dates_valides check (fin > debut)
 );
 
-create table Immatriculation (
-    station Station_Code not null,
-    immatriculation varchar(50) not null,
-    constraint immatriculation_cc0 primary key (station),
-    foreign key (station) references Station(code)
-);
+-- Ajout à Position des tuples de la table Station (avec la date de début à now())
+insert into Position (station, latitude, longitude, altitude, debut)
+select code, latitude, longitude, altitude, now() from Station;
 
+-- Suppression des attributs de la table Station
 alter table Station drop column latitude;
 alter table Station drop column longitude;
 alter table Station drop column nom;
 
+create domain Immatricumation_code as varchar(50);
+
+create table Immatriculation (
+    station Station_Code not null,
+    immatriculation Immatricumation_code not null,
+    constraint immatriculation_cc0 primary key (station),
+    constraint immatriculation_cr0 foreign key (station) references Station(code)
+);
