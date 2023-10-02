@@ -10,10 +10,10 @@ au préalable.
 */
 
 -- valref invalide
-insert into Variable (nom, unite, valref, methode, code) values ('test2', 'test', 0, 'test', 'test2');
+insert into Validation (min, max, variable, norme) values (0, 45, 'test', 'test');
 
 -- min invalide
 insert into Exigence (variable, periode_valeur, periode_unite, min, max, norme, code) values ('test', 1, 's', 0, 50, 'test', 'test');
 
 -- max invalide
-insert into Exigence (variable, periode_valeur, periode_unite, min, max, norme, code) values ('test2', 1, 's', 50, 10000, 'test', 'test2');
+insert into Exigence (variable, periode_valeur, periode_unite, min, max, norme, code) values ('test', 1, 's', 50, 10000, 'test', 'test2');
