@@ -31,10 +31,10 @@ create trigger verifier_validation_trigger before insert or update on validation
 -- Ajout contrainte pour la table exigence
 create function valider_exigence() returns trigger as $$
 begin
-    if (not exists (select 1 from validation v where v.variable = new.variable and new.min between v.min and v.max)) then
+    if (exists (select 1 from validation v where v.variable = new.variable and v.norme = new.norme and new.min not between v.min and v.max)) then
         raise exception 'La valeur minimale de l''exigence est invalide';
     end if;
-    if (not exists (select 1 from validation v where v.variable = new.variable and new.max between v.min and v.max)) then
+    if (exists (select 1 from validation v where v.variable = new.variable and v.norme = new.norme and new.max not between v.min and v.max)) then
         raise exception 'La valeur maximale de l''exigence est invalide';
     end if;
     return new;
