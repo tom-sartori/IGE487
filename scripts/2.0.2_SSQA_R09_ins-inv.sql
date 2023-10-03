@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
+Résumé : Tentatives erronées d'insertion de valeurs dans les tables Station et Nom_station.
 -- =========================================================================== A
 */
 
@@ -16,7 +16,18 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- la colonne nom n'existe plus dans la table station.
+insert into station(code, nom, debut_service, fin_service, mobilite) values 
+  ('0000006', 'Station 6', '2023-01-01 00:00:00', '2023-12-31 23:59:59', true);
 
+-- station invalide dans la table nom_station.
+insert into nom_station(code, nom) values ('0000008', 'Station 8');
+
+-- nom nul dans la table nom_station.
+insert into nom_station(code, nom) values ('0000009', null);
+
+-- code null dans la table nom_station.
+insert into nom_station(code, nom) values (null, 'Station 10');
 
 /*
 -- =========================================================================== Z
