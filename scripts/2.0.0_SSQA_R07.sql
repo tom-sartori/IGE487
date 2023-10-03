@@ -46,11 +46,11 @@ alter table Station drop column latitude;
 alter table Station drop column longitude;
 alter table Station drop column altitude;
 
-create domain Immatricumation_code as varchar(50);
+create domain Immatriculation_code as varchar(50);
 
 create table Immatriculation (
     station Station_Code not null,
-    immatriculation Immatricumation_code not null,
+    immatriculation Immatriculation_code not null,
     constraint immatriculation_cc0 primary key (station),
     constraint immatriculation_cr0 foreign key (station) references Station(code)
 );
