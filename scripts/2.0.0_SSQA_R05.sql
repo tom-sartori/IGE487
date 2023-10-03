@@ -19,9 +19,12 @@ set schema 'SSQA';
 -- Creation de l'enum methode_enum.
 create type methode_enum as enum('Moyenne horaire', 'Moyenne des 3 dernières heures', 'Maximum sur quatre minutes');
 
+-- Suppression des variables qui ont une methode qui n'est pas dans l'enum.
+delete from Variable where methode not in ('Moyenne horaire', 'Moyenne des 3 dernières heures', 'Maximum sur quatre minutes');
+
 -- Modification du type de la colonne methode de la table Variable, par l'enum précédente.
-ALTER TABLE Variable
-ALTER COLUMN methode TYPE methode_enum USING methode::methode_enum;
+alter table Variable
+alter column methode TYPE methode_enum USING methode::methode_enum;
 
 
 /*
