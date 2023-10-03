@@ -17,10 +17,10 @@ create schema if not exists "SSQA";
 set schema 'SSQA';
 
 -- Vérification à l'ajout dans la table Exigence que periode_unite est bien une unité de temps
--- On vérifie que l'unite referencée dans periode_unite n'a qu'une correspondance dans la table composition_unite et que son symbole_unite_fondamentale est 's'
+-- On vérifie que l'unite referencée dans periode_unite n'a pas de correspondance dans la table composition_unite dont l'unite fondamentale n'est pas 's'
 create function verifier_periode_unite() returns trigger as $$
 begin
-    if (not exists (select 1 from composition_unite join unite on unite.sym = composition_unite.symbole_unite_composite where unite.sym = new.periode_unite and composition_unite.symbole_unite_fondamentale = 's' group by composition_unite.symbole_unite_composite having count(*) = 1)) then
+    if (exists (select from composition_unite where composition_unite.symbole_unite_composite = new.periode_unite and composition_unite.symbole_unite_fondamentale != 's')) then
         raise exception 'L''unité de la période n''est pas une unité de temps';
     end if;
     return new;
