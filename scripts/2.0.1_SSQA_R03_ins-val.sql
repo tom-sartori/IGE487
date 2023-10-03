@@ -16,7 +16,7 @@ Résumé : Insertion des valeurs dans la table Validation.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
-insert values into Validation(variable, norme, min, max) values ('CO2', 'PM10', 0, 50);
+insert into Validation(variable, norme, min, max) values ('CO', 'NCQAA_2025', 0, 50);
 
 /*
 -- =========================================================================== Z
