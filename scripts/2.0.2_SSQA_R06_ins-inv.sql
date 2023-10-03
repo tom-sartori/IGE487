@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
+Résumé : Tentatives erronées d'insertion de valeurs dans les tables Station, Nature_hors_service et Hors_service.
 -- =========================================================================== A
 */
 
