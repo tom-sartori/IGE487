@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Insertion de valeurs dans les tables
+Résumé : Insertion de valeurs dans les tables Station et Nom_station.
 -- =========================================================================== A
 */
 
@@ -16,7 +16,11 @@ Résumé : Insertion de valeurs dans les tables
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- Insertion d'une station mobile (nom obligatoire).
+select inserer_station('0000006', 'Station 6', '2023-01-01 00:00:00', '2023-12-31 23:59:59', true);
 
+-- Insertion d'une station non mobile (nom facultatif).
+select inserer_station('0000007', null, '2023-01-01 00:00:00', '2023-12-31 23:59:59', false);
 
 /*
 -- =========================================================================== Z
