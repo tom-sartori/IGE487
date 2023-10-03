@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Insertion de valeurs dans les tables
+Résumé : Insertion de valeurs dans les tables Unite, Composition_Unite et Exigence.
 -- =========================================================================== A
 */
 
@@ -16,6 +16,19 @@ Résumé : Insertion de valeurs dans les tables
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- Création de deux unités composite de temps
+insert into Unite (sym, nom, mult, add) values
+  ('s2', 'seconde carrée', 1, 0),
+  ('j', 'jour', 3600*24, 0);
+
+insert into Composition_Unite (symbole_unite_composite, symbole_unite_fondamentale, exposant) values
+  ('s2', 's', 2),
+  ('j', 's', 1);
+
+-- Insertion de deux exigences
+insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
+  ('NQMAA_2014', 'E1', 'CO', 1, 's2', 0, 100),
+  ('NQMAA_2014', 'E2', 'CO', 1, 'j', 0, 100);
 
 
 /*
