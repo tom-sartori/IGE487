@@ -1,6 +1,6 @@
 /*
 -- =========================================================================== A
--- SSQA_R04_ins_val.sql
+-- SSQA_R04_ins-val.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
 Encodage : UTF-8, sans BOM; fin de ligne Unix (LF)
@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Insertion des valeurs dans la table Validation.
+Résumé : Insertion des valeurs dans les tables Validation, Variable et Norme.
 -- =========================================================================== A
 */
 
@@ -34,6 +34,6 @@ Tâches réalisées :
   2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Insertion des valeurs dans la table Validation.
 
 -- -----------------------------------------------------------------------------
--- SSQA_RO4_ins_val.sql
+-- SSQA_R04_ins-val.sql
 -- =========================================================================== Z
 */

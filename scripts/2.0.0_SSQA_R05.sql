@@ -40,6 +40,6 @@ Tâches réalisées :
   2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Modification du type de la colonne methode de la table Variable.
 
 -- -----------------------------------------------------------------------------
--- SSQA_RO5.sql
+-- SSQA_R05.sql
 -- =========================================================================== Z
 */

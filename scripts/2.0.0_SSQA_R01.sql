@@ -70,6 +70,6 @@ Tâches réalisées :
   2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Permettre la définition d’unités fondamentales supplémentaires (par exemple, le bit).
 
 -- -----------------------------------------------------------------------------
--- SSQA_RO1.sql
+-- SSQA_R01.sql
 -- =========================================================================== Z
 */

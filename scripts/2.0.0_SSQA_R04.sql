@@ -56,6 +56,6 @@ Tâches réalisées :
   2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Vérifier que les min et max des exigences sont compris dans l’intervalle de validité.
 
 -- -----------------------------------------------------------------------------
--- SSQA_RO4.sql
+-- SSQA_R04.sql
 -- =========================================================================== Z
 */

@@ -67,6 +67,6 @@ Tâches réalisées :
   2023-10-01 (capl1101, sart0701, thea1804, turr3004) : Création des domaines Hors_service_code et Description_hors_service.
 
 -- -----------------------------------------------------------------------------
--- SSQA_RO1.sql
+-- SSQA_R01.sql
 -- =========================================================================== Z
 */
