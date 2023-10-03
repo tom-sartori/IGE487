@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Insertion de valeurs dans les tables.
+Résumé : Insertion de valeurs dans les tables Station et Position.
 -- =========================================================================== A
 */
 
@@ -16,6 +16,20 @@ Résumé : Insertion de valeurs dans les tables.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- Insertion de valeurs dans la table Station
+insert into Station (code, nom, debut_service, fin_service, mobilite) values
+('000004', 'Station 4', '2021-01-01', null, true),
+('000005', 'Station 5', '2021-01-01', null, false);
+
+-- Insertion de valeurs dans la table Position
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, -71.928, 200, '2021-01-01', null),
+('000005', 45.378, -71.928, 200, '2021-01-01', null);
+
+-- Insertion de valeurs dans la table Immatriculation
+insert into Immatriculation (station, immatriculation) values
+('000004', '000004-1'),
+('000005', '000005-1');
 
 
 /*
