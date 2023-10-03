@@ -31,7 +31,24 @@ select code, nom from Station;
 alter table Station
 drop column nom;
 
-     /*
+-- Fonction d'insertion d'une station.
+-- Si la station est mobile, le nom est obligatoire et est inséré dans la table nom_station.
+-- Si la station n'est pas mobile, le nom est facultatif et n'est pas inséré dans la table nom_station.
+create function inserer_station(code Station_Code, nom Station_Nom, debut_service Estampille, fin_service Estampille, mobilite boolean) returns void as $$
+begin
+    if mobilite then
+        insert into station(code, debut_service, fin_service, mobilite)
+        values (code, debut_service, fin_service, mobilite);
+        insert into nom_station(code, nom) 
+        values (code, nom);
+    else
+        insert into station(code, debut_service, fin_service, mobilite)
+        values (code, debut_service, fin_service, mobilite);
+    end if;
+end;
+$$ language plpgsql;
+
+/*
 -- =========================================================================== Z
 Contributeurs :
     capl1101 louis-vincent.capelli@usherbrooke.ca
