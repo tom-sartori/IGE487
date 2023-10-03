@@ -16,6 +16,15 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables Station e
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+/*
+Tentative d’insertion des données invalides à des fins de tests unitaires pour les tables
+du schéma SSQA (système de surveillance de la qualité de l’air). Toutes les insertions
+doivent entraîner une échec.
+
+On suppose que les données valides du fichier SSQA_ins-val.sql correspondant ont été insérées
+au préalable.
+*/
+
 -- la colonne nom n'existe plus dans la table station.
 insert into station(code, nom, debut_service, fin_service, mobilite) values 
   ('0000006', 'Station 6', '2023-01-01 00:00:00', '2023-12-31 23:59:59', true);

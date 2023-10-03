@@ -16,6 +16,15 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables Station, 
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+/*
+Tentative d’insertion des données invalides à des fins de tests unitaires pour les tables
+du schéma SSQA (système de surveillance de la qualité de l’air). Toutes les insertions
+doivent entraîner une échec.
+
+On suppose que les données valides du fichier SSQA_ins-val.sql correspondant ont été insérées
+au préalable.
+*/
+
 -- code hors-service null
 insert into Nature_Hors_service (code, description) values
 (null, 'Maintenance');

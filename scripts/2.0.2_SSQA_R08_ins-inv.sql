@@ -16,6 +16,15 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables Unite, Co
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+/*
+Tentative d’insertion des données invalides à des fins de tests unitaires pour les tables
+du schéma SSQA (système de surveillance de la qualité de l’air). Toutes les insertions
+doivent entraîner une échec.
+
+On suppose que les données valides du fichier SSQA_ins-val.sql correspondant ont été insérées
+au préalable.
+*/
+
 -- l'unité de la periode n'est pas une unité de temps
 insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
   ('NQMAA_2014', 'E3', 'CO', 1, 'µg/m3', 0, 100);
