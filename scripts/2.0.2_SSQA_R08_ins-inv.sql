@@ -8,7 +8,7 @@ Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
+Résumé : Tentatives erronées d'insertion de valeurs dans les tables Unite, Composition_Unite et Exigence.
 -- =========================================================================== A
 */
 
@@ -16,6 +16,9 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- l'unité de la periode n'est pas une unité de temps
+insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
+  ('NQMAA_2014', 'E3', 'CO', 1, 'µg/m3', 0, 100);
 
 
 /*
