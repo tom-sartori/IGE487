@@ -39,7 +39,7 @@ create table Position (
 insert into Position (station, latitude, longitude, altitude, debut)
 select code, latitude, longitude, altitude, now() from Station;
 
-comment on column Position.debut is 'Les dates de début n''ont pas été répertoriées avant le 2023/10/01 et sont donc toutes égales à cette date.';
+comment on column Position.debut is 'Les dates de début n''ont pas été répertoriées avant la date de création de la table et sont donc toutes égales à cette date.';
 
 -- Suppression des attributs de la table Station
 alter table Station drop column latitude;
