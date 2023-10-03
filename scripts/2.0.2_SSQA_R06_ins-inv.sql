@@ -16,7 +16,37 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- code hors-service null
+insert into Nature_Hors_service (code, description) values
+(null, 'Maintenance');
 
+-- description hors-service null
+insert into Nature_Hors_service (code, description) values
+(1, null);
+
+-- code hors-service invalide
+insert into Nature_Hors_service (code, description) values
+('test', 'peu importe');
+
+-- description hors-service invalide
+insert into Nature_Hors_service (code, description) values
+(1, 'Une description beaucoup trop longue pour être valideeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee');
+
+-- date de fin de service antérieure à la date de début de service
+insert into Station (code, nom, longitude, latitude, altitude, debut_service, fin_service) values
+('000001', 'Station 1', 45.378, -71.925, 200, '2021-01-02', '2021-01-01');
+
+-- station de référence inexistante
+insert into Hors_service (station, debut, fin, nature) values
+('000004', '2021-01-01', '2021-01-02', 1);
+
+-- date de fin de hors-service antérieure à la date de début de hors-service
+insert into Hors_service (station, debut, fin, nature) values
+('000001', '2021-01-02', '2021-01-01', 1);
+
+-- nature de hors-service inexistante
+insert into Hors_service (station, debut, fin, nature) values
+('000001', '2021-01-01', '2021-01-02', 5);
 
 /*
 -- =========================================================================== Z
