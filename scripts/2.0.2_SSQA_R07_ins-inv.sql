@@ -16,7 +16,49 @@ Résumé : Tentatives erronées d'insertion de valeurs dans les tables Station, 
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+-- latitude null
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', null, -71.928, 200, '2021-01-01', null);
 
+-- longitude null
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, null, 200, '2021-01-01', null);
+
+-- altitude null
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, -71.928, null, '2021-01-01', null);
+
+-- latitude invalide
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 91, -71.928, 200, '2021-01-01', null);
+
+-- longitude invalide
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, 181, 200, '2021-01-01', null);
+
+-- altitude invalide
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, -71.928, -13000, '2021-01-01', null);
+
+-- station inexistante
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000006', 45.378, -71.928, 200, '2021-01-01', null);
+
+-- fin < debut
+insert into Position (station, latitude, longitude, altitude, debut, fin) values
+('000004', 45.378, -71.928, 200, '2021-01-01', '2020-01-01');
+
+-- immatriculation null
+insert into Immatriculation (station, immatriculation) values
+('000004', null);
+
+-- immatriculation invalide
+insert into Immatriculation (station, immatriculation) values
+('000004', '000004-1-1-a-a-a-a-a-a-a--a-a-a-a-a-a-a-a-aèazterèta');
+
+-- station inexistante
+insert into Immatriculation (station, immatriculation) values
+('000006', '000006-1');
 
 /*
 -- =========================================================================== Z
