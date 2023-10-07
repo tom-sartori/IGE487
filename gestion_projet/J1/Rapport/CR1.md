@@ -1,0 +1,37 @@
+# Réunion 1 (21/09/2023)
+
+## Présents
+- [x] Alexandre
+- [x] Tom
+- [x] Raphaël
+- [x] LV
+
+## Sujets abordés
+
+### Prise en main du projet
+
+Nous avons essayé de comprendre les attendus du projet, de comprendre le lien entre les nombreux PDF fournis et de prendre en main les fichiers *.sql* ainsi que le serveur *PostgreSQL*.
+
+Nous avons ainsi compris que le contexte du projet était défini dans l'EPP_V1, avec un schéma correspondant a priori aux fichiers *.sql* fournis. Ce schéma est incomplet et ne contient notamment pas de contraintes. La première étape sera donc de corriger ce schéma pour qu'il corresponde aux exigences de la V2. Ensuite nous pourrons procéder aux améliorations requises par la V2.
+
+Nous avons créé un repo GitHub pour le projet, qui contient notamment les fichiers *.sql* fournis et sur lequel nous pourrons aussi tenir à jour une TODO list qui répartira les lots de travail entre les membres du groupe comme défini lors des réunions successives.
+
+### Déroulement du projet
+
+Nous avons donc décidé de suivre les étapes énumérées dans le fichier *MLR_02a-Conception-Rel_PRE.pdf* de la S4 afin de définir un schéma complet et cohérent pour la V1. Ce schéma devra avoir été établi en ayant pris en compte les modifications qui seront apportées pour la V2, afin de faciliter la transition.
+
+Ensuite nous pourrons passer à la transition vers la V2 dont les requirements pourront être répartis entre les membres du groupe et figureront sur le GitHub sous la forme de deux fichiers de tests (valides et invalides) pour chaque requirement ainsi que d'un fichier de modification de la BD.
+
+
+## TODO
+**Pour samedi 23/09 :**
+
+| Tâche                                                           | Responsable      |
+|-----------------------------------------------------------------|------------------|
+| Lire l'EPP_V1                                                   | Tout le monde    |
+| Lire MLR_02a-Conception-Rel_PRE.pdf                             | Tout le monde    |
+| Lire STD-SQL-01_NT.pdf (conventions de prog.)                   | Tout le monde    |
+| Lire l'EPP_V2 (afin d'avoir en tête les améliorations futures)  | Tout le monde    |
+| Rédiger les étapes d'analyse et de synthèse                     | Tout le monde    |
+  
+

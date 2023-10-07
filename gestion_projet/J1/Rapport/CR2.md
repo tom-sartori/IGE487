@@ -1,0 +1,49 @@
+# Réunion 2 (23/09/2023)
+
+## Présents
+- [x] Alexandre
+- [x] Tom
+- [x] Raphaël
+- [x] LV
+
+## Sujets abordés
+
+### Mise en commun des analyses/synthèses
+
+Nous avons chacun abordé les éventuelles modifications à apporter au schéma proposé dans l'EPP_V1. Finalement, il semble assez complet.
+
+On pourra ajouter des dates de construction et de fin de service des stations.
+
+Nous avons l'idée d'ajouter une table pour tenir compte de la mobilité des stations, et de noter l'immatriculation des stations mobiles et les entretiens des stations fixes.
+
+L'entretien pourra être noté dans une table plus générale, qui tient compte de tous les hors-services des stations.
+
+### Suite du projet
+
+Il faut donc maintenant ajouter au schéma les attributs et tables correspondant aux modifications que nous avons décidées.
+
+Ensuite nous pourrons passer à la phase de normalisation.
+
+Enfin nous pourrons intégrer les données de l'EPP_V2.
+
+## Questions à poser
+
+- Intitulé des types "Norme_titre", "Station_nom", "Territoire_nom", "Unité_nom", "Unité_symbole" et "Variable_nom" incomplet, car la taille max des champs n'est pas mentionnée. Est-ce que la taille actuelle convient ?
+
+- Comment peut-on avoir des mesures invalides ?
+
+- Faut-il ajouter l'incertitude pour chaque mesure ?
+
+- Besoin de stocker le nom des agents d'entretien ?
+
+- Table pour types de hors-service
+
+## TODO
+**Pour mardi 26/09 :**
+
+| Tâche                                                                        | Responsable      |
+|------------------------------------------------------------------------------|------------------|
+| Taper en .dbml le schéma proposé dans l'EPP_V1                               | Tom              |
+| Ajouter au schéma les modifications décidées                                 | LV               |
+| Spécifier les contraintes, domaines, etc.                                    | Tout le monde    |
+| Normaliser le schéma                                                         | Alex et LV       |
