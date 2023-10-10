@@ -17,7 +17,9 @@ create schema if not exists "SSQA";
 set schema 'SSQA';
 
 -- Création attribut mobilité
-alter table Station add column mobilite boolean;
+create domain Station_mobilite as boolean;
+
+alter table Station add column mobilite Station_mobilite;
 
 -- Position
 --
