@@ -38,6 +38,10 @@ insert into Unite(sym, nom, mult, add) values
 ('a', 'année', 3600*24*365, 0);
 insert into Unite(sym, nom, mult, add) values
 ('µg/m3', 'microgramme par mètre cube', 1/1000000000.0, 0);
+insert into Unite(sym, nom, mult, add) values
+('ppb', 'parties par milliard', 1/1000000000.0, 0);
+insert into Unite(sym, nom, mult, add) values
+('ppm', 'parties par million', 1/1000000.0, 0);
 
 insert into Unite_fond(symbole, nom) values
     ('s', 'seconde'),
