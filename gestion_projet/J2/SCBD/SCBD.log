@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  11 OCT 2023 02:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  11 OCT 2023 02:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J1/SCBD/SCBD.tex
-(c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J1/SCBD/SCBD.tex
+**c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J2/SCBD/SCBD.tex
+(c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J2/SCBD/SCBD.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
 (c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -459,88 +459,37 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./SCBD.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
+(Font)              <5> on input line 4.
 )
 \tf@toc=\write3
 \openout3 = `SCBD.toc'.
 
  [2]
-<modif.png, id=14, 1743.51375pt x 1257.69875pt>
-File: modif.png Graphic file (type png)
-<use modif.png>
-Package pdftex.def Info: modif.png  used on input line 35.
-(pdftex.def)             Requested size: 418.45186pt x 301.85387pt.
+Underfull \hbox (badness 10000) in paragraph at lines 25--32
 
-Overfull \hbox (73.45186pt too wide) in paragraph at lines 35--36
- [][] 
  []
 
-[3 <./modif.png>]
-Overfull \hbox (12.33397pt too wide) in paragraph at lines 58--59
-[]\OT1/cmr/m/n/10 Station 1, con-cen-tra-tion NO2, cap-teur sur-chauffe (peut ^etre le 2/1/1970) 
- []
-
-[4{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (0.65263pt too wide) in paragraph at lines 78--87
- \OT1/cmr/bx/n/10 So-lu-tion al-ter-na-tive[] \OT1/cmr/m/n/10 Nous avions pens^^Se ^^Ra une autre so-lu-tion pour repr^^Sesenter
- []
-
-
-Overfull \hbox (2.79306pt too wide) in paragraph at lines 92--98
- \OT1/cmr/bx/n/10 So-lu-tion choisie[] \OT1/cmr/m/n/10 Nous n'avons pas impl^^Sement^^Se cette ex-i-gence car nous n'avons
- []
-
-
-Overfull \hbox (5.66716pt too wide) in paragraph at lines 110--112
-[]\OT1/cmr/m/n/10 V^^Serifier que la valeur de r^^Sef^^Serence de la vari-able est com-prise dans l'intervalle
- []
-
-[5]
-Overfull \hbox (54.58609pt too wide) in paragraph at lines 139--143
- \OT1/cmr/bx/n/10 So-lu-tion al-ter-na-tive[] \OT1/cmr/m/n/10 Nous au-ri-ons pu ^^Segalement cr^^Seer une ta-ble M^^Sethode[]^^Sechantillonnage
- []
-
-
-Overfull \hbox (7.50964pt too wide) in paragraph at lines 150--157
- \OT1/cmr/bx/n/10 So-lu-tion choisie[] \OT1/cmr/m/n/10 Nous avons cr^^Se^^Se des ta-bles Na-ture[]hors[]service et Hors[]service
- []
-
-
-Overfull \hbox (3.83017pt too wide) in paragraph at lines 150--157
-\OT1/cmr/m/n/10 tient ^^Segalement une date de d^^Sebut et une date de fin. La ta-ble Na-ture[]hors[]service
- []
-
-[6]
-Overfull \hbox (13.51724pt too wide) in paragraph at lines 209--212
-[]\OT1/cmr/m/n/10 Nous avons donc transf^^Ser^^Se les tu-ples de la ta-ble Sta-tion vers la ta-ble Nom[]station
- []
-
-[7]
-Overfull \hbox (7.52724pt too wide) in paragraph at lines 243--245
-\OT1/cmr/m/n/10 ment^^Se nos scripts SQL en y ajoutant les pr^^Sedicats afin de fa-ciliter la compr^^Sehension
- []
-
-[8] (./SCBD.aux)
+[3] [4] (./SCBD.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2683 strings out of 475188
- 44636 string characters out of 5767814
- 1926248 words of memory out of 5000000
- 23988 multiletter control sequences out of 15000+600000
- 563343 words of font info for 52 fonts, out of 8000000 for 9000
+ 2664 strings out of 475188
+ 44305 string characters out of 5767814
+ 1922248 words of memory out of 5000000
+ 23972 multiletter control sequences out of 15000+600000
+ 562324 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,541b,237s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on SCBD.pdf (8 pages, 213351 bytes).
+ 57i,7n,65p,541b,203s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on SCBD.pdf (4 pages, 80069 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 42 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

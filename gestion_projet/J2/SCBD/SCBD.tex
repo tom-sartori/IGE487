@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{textgreek}
+
+\begin{document}
+\title{Spécifiation de conception de la base de données : Jalon 2}
+
+\author{Louis-Vincent CAPELLI \and Alexandre THEISSE \and Tom SARTORI \and Raphaël TURCOTTE}
+\date{\today}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection*{Objet et portée du document}
+Ce document a pour but de documenter la création d'une API sur la base de données
+SSQA afin de répondre aux exigences formulées dans la
+spécifiation des exigences du modèle pour le jalon 2.
+Il s'adresse à toute personne qui pourrait avoir à travailler sur la base de données
+SSQA à l'avenir.
+
+\section{Présentation générale du résultat}
+L'ensemble de l'API est en PostgreSQL comme la base de données SSQA.
+\\\\
+Nous avons décidé de créer les fonctions atomiques correspondant aux primitives 
+fondamentales d'ÉMIR dans le schéma original de la base de données qui est privé.
+Les fonctions de production de rapport, elles sont dans un nouveau schéma public
+afin de permettre à l'utilisateur de les utiliser sans avoir à connaître le
+schéma privé.
+
+
+\section{Choix de conception}
+\subsection{Primitives fondamentales}
+\paragraph{Description} Implémenter les primitives fondamentales d'ÉMIR
+pour les tables Territoire, Station, Variable et Mesure.
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\subsection{Requête 1}
+\paragraph{Description} Créer une fonction permet à l'utilisateur
+d'effectuer la requête suivante : "Quel est l'IQA découlant des mesures
+prises par la station du quartier universitaire de la ville de Sherbrooke,
+le 2016-06-12 ?"
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\subsection{Requête 2}
+\paragraph{Description} Créer une fonction permet à l'utilisateur
+d'effectuer la requête suivante : "Quelles sont les stations du territoire
+de la ville de Sherbrooke ?"
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\subsection{Requête 3}
+\paragraph{Description} Créer une fonction permet à l'utilisateur
+d'effectuer la requête suivante : "Quels sont les quartiers de la ville
+de Sherbrooke qui dépassent la norme canadienne de la qualité de l'air
+au moins n fois par année ?"
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\subsection{Requête 4}
+\paragraph{Description} Créer une fonction permet à l'utilisateur
+d'effectuer la requête suivante : "Dans un territoire donné, au cours de
+l'année 2021, quels sont les polluants qui ont dépassé la valeur de 
+référence d'au moins 10\% ?"
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\subsection{Requête 5}
+\paragraph{Description} Créer une fonction permet à l'utilisateur
+d'effectuer la requête suivante : "Quels sont les territoires ayant au
+moins trois fois par mois un mauvais IQA au  cours des deux dernières
+années ?"
+
+\paragraph{Solution choisie}
+
+\paragraph{Solution alternative}
+
+\end{document}
