@@ -17,17 +17,27 @@ create schema if not exists "SSQA";
 set schema 'SSQA';
 
 insert into Unite(sym, nom, mult, add) values
-    ('s', 'seconde', 1, 0),
-    ('m', 'mètre', 1, 0),
-    ('kg', 'kilogramme', 1, 0),
-    ('mol', 'mole', 1, 0),
-    ('K', 'kelvin', 1, 0),
-    ('A', 'ampere', 1, 0),
-    ('cd', 'candela', 1, 0),
-    ('bit', 'bit', 1, 0),
-    ('h', 'heure', 3600, 0),
-    ('a', 'année', 3600*24*365, 0),
-    ('µg/m3', 'microgramme par mètre cube', 1/1000000000, 0);
+('s', 'seconde', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('m', 'mètre', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('kg', 'kilogramme', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('mol', 'mole', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('K', 'kelvin', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('A', 'ampere', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('cd', 'candela', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('bit', 'bit', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('h', 'heure', 3600, 0);
+insert into Unite(sym, nom, mult, add) values
+('a', 'année', 3600*24*365, 0);
+insert into Unite(sym, nom, mult, add) values
+('µg/m3', 'microgramme par mètre cube', 1/1000000000.0, 0);
 
 insert into Unite_fond(symbole, nom) values
     ('s', 'seconde'),
