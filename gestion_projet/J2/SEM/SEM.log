@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  11 OCT 2023 02:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.28)  11 OCT 2023 02:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J1/SEM/SEM.tex
-(c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J1/SEM/SEM.tex
+**c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J2/SEM/SEM.tex
+(c:/Users/LV/OneDrive/Documents/_Cours/UdS/BD/Projet/IGE487/gestion_projet/J2/SEM/SEM.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
 (c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
@@ -99,40 +99,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `SEM.toc'.
 
  [2]
-<preli.png, id=14, 971.12813pt x 630.85687pt>
-File: preli.png Graphic file (type png)
-<use preli.png>
-Package pdftex.def Info: preli.png  used on input line 30.
-(pdftex.def)             Requested size: 388.44437pt x 252.33827pt.
+<modif.png, id=14, 1743.51375pt x 1257.69875pt>
+File: modif.png Graphic file (type png)
+<use modif.png>
+Package pdftex.def Info: modif.png  used on input line 31.
+(pdftex.def)             Requested size: 418.45186pt x 301.85387pt.
 
-Overfull \hbox (43.44437pt too wide) in paragraph at lines 30--31
+Overfull \hbox (73.45186pt too wide) in paragraph at lines 31--32
  [][] 
  []
 
-[3 <./preli.png>]
-Overfull \hbox (5.66716pt too wide) in paragraph at lines 67--69
-[]\OT1/cmr/m/n/10 V^^Serifier que la valeur de r^^Sef^^Serence de la vari-able est com-prise dans l'intervalle
+
+Overfull \hbox (9.269pt too wide) in paragraph at lines 36--40
+\OT1/cmr/m/n/10 sch^^Sema mod-ifi^^Se ci-dessus. Les scripts de cr^^Seation de la base de donn^^Sees pr^^Seliminaire
  []
 
-[4{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] (./SEM.aux)
+[3 <./modif.png>] [4] [5] (./SEM.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-11>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 1323 strings out of 475188
- 21522 string characters out of 5767814
+ 1317 strings out of 475188
+ 21402 string characters out of 5767814
  1923248 words of memory out of 5000000
- 22647 multiletter control sequences out of 15000+600000
- 562659 words of font info for 51 fonts, out of 8000000 for 9000
+ 22643 multiletter control sequences out of 15000+600000
+ 562324 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,271b,223s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on SEM.pdf (5 pages, 251808 bytes).
+ 57i,7n,65p,261b,223s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on SEM.pdf (5 pages, 186438 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 48 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
