@@ -36,6 +36,34 @@ create table Unite (
     constraint Unite_mult_positif check (mult > 0)
 );
 
+-- Insertion dans Unite due à la suppression de la table.
+insert into Unite(sym, nom, mult, add) values
+('s', 'seconde', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('m', 'mètre', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('kg', 'kilogramme', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('mol', 'mole', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('K', 'kelvin', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('A', 'ampere', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('cd', 'candela', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('bit', 'bit', 1, 0);
+insert into Unite(sym, nom, mult, add) values
+('h', 'heure', 3600, 0);
+insert into Unite(sym, nom, mult, add) values
+('a', 'année', 3600*24*365, 0);
+insert into Unite(sym, nom, mult, add) values
+('µg/m3', 'microgramme par mètre cube', 1/1000000000.0, 0);
+insert into Unite(sym, nom, mult, add) values
+('ppb', 'parties par milliard', 1/1000000000.0, 0);
+insert into Unite(sym, nom, mult, add) values
+('ppm', 'parties par million', 1/1000000.0, 0);
+
 -- Unite_fond
 --
 -- L'unité fondamentale est modélisée par un symbole et un nom.
@@ -61,6 +89,11 @@ create table Composition_unite (
     constraint Composition_unite_cr0 foreign key (symbole_unite_composite) references Unite (sym),
     constraint Composition_unite_cr1 foreign key (symbole_unite_fondamentale) references Unite_fond (symbole)
 );
+
+-- -- Création des références vers la nouvelle table Unite
+alter table Variable add constraint Variable_cr0 foreign key (unite) references Unite (sym);
+alter table Exigence add constraint Exigence_cr2 foreign key (periode_unite) references Unite (sym);
+
 
 /*
 -- =========================================================================== Z

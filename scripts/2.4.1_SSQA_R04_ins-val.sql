@@ -16,6 +16,9 @@ Résumé : Insertion des valeurs dans les tables Validation, Variable et Norme.
 create schema if not exists "SSQA";
 set schema 'SSQA';
 
+insert into Unite(sym, nom, mult, add)
+values ('test', 'Test', 1, 0);
+
 insert into Variable(nom, unite, valref, methode, code) values ('test', 'test', 50, 'Moyenne horaire', 'test');
 
 insert into Norme(titre, code) values ('test', 'test');
