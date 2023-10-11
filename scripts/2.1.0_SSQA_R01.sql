@@ -55,7 +55,7 @@ create domain Composition_unite_exposant as integer;
 
 create table Composition_unite (
     symbole_unite_composite Unite_Symbole not null,
-    symbole_unite_fondamentale Unite_Symbole not null,>
+    symbole_unite_fondamentale Unite_Symbole not null,
     exposant Composition_unite_exposant not null,
     constraint Composition_unite_cc0 primary key (symbole_unite_composite, symbole_unite_fondamentale),
     constraint Composition_unite_cr0 foreign key (symbole_unite_composite) references Unite (sym),
