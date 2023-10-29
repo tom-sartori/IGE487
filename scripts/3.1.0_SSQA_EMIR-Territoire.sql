@@ -1,6 +1,6 @@
 /*
 -- =========================================================================== A
--- 3.1.0_SSQA_EMIR-Territoires.sql
+-- 3.1.0_SSQA_EMIR-Territoire.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
 Encodage : UTF-8, sans BOM; fin de ligne Unix (LF)
@@ -116,6 +116,6 @@ Tâches réalisées :
   2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les territoires.
 
 -- -----------------------------------------------------------------------------
--- 3.1.0_SSQA_EMIR-Territoires.sql
+-- 3.1.0_SSQA_EMIR-Territoire.sql
 -- =========================================================================== Z
 */
