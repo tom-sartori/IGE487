@@ -76,8 +76,7 @@ prises par la station du quartier universitaire de la ville de Sherbrooke,
 le 2016-06-12 ?"
 
 \paragraph{Solution choisie}
-
-\paragraph{Solution alternative}
+Les fonctions de calcul de l'IQA sont dans les fichiers utilitaires nommés 3.5.0\_SSQA\_IQA.sql et 3.5.1\_SSQA\_IQA\_mauvaisIQA.sql.
 
 \subsection{Requête 2}
 \paragraph{Description} Créer une fonction permet à l'utilisateur
@@ -85,9 +84,9 @@ d'effectuer la requête suivante : "Quelles sont les stations du territoire
 de la ville de Sherbrooke ?"
 
 \paragraph{Solution choisie}
-La fonction prend en paramètre le nom du territoire et retourne les stations. Cette fonction en fonction du paramètre territoire va d'abord chercher le territoire dans la table Territoire. Ensuite, elle va chercher les stations qui ont le même id\_territoire que le territoire trouvé. Elle retourne les stations trouvées.
-
-\paragraph{Solution alternative}
+La fonction prend en paramètre le nom du territoire et retourne les stations. 
+Cette fonction en fonction du paramètre territoire va d'abord chercher le territoire dans la table Territoire. 
+Ensuite, elle va chercher les stations qui ont le même id\_territoire que le territoire trouvé. Elle retourne les stations trouvées.
 
 \subsection{Requête 3}
 \paragraph{Description} Créer une fonction permet à l'utilisateur
@@ -96,8 +95,7 @@ de Sherbrooke qui dépassent la norme canadienne de la qualité de l'air
 au moins n fois par année ?"
 
 \paragraph{Solution choisie}
-
-\paragraph{Solution alternative}
+La fonction prend en paramètre le nom du territoire, le nombre de fois que la norme est dépassée et l'année.
 
 \subsection{Requête 4}
 \paragraph{Description} Créer une fonction permet à l'utilisateur
@@ -106,17 +104,16 @@ l'année 2021, quels sont les polluants qui ont dépassé la valeur de
 référence d'au moins 10\% ?"
 
 \paragraph{Solution choisie}
-
-\paragraph{Solution alternative}
+La fonction prend en paramètre le nom du territoire et l'année et retourne les polluants qui ont dépassé la valeur de référence d'au moins 10\%.
 
 \subsection{Requête 5}
 \paragraph{Description} Créer une fonction permet à l'utilisateur
 d'effectuer la requête suivante : "Quels sont les territoires ayant au
-moins trois fois par mois un mauvais IQA au  cours des deux dernières
+moins trois fois par mois un mauvais IQA au cours des deux dernières
 années ?"
 
 \paragraph{Solution choisie}
-
-\paragraph{Solution alternative}
+La fonction prend en paramètre le nombre de fois que la norme est dépassée, et le nombre d'années consécutive qui ont vu eu un mauvais IQA.
+Les fonctions qui vérifient si l'IQA est mauvais sont des les fichiers utilitaires cités plus haut.
 
 \end{document}

@@ -8,20 +8,15 @@
 \contentsline {subsection}{\numberline {3.2}Requête 1}{4}{}%
 \contentsline {paragraph}{Description}{4}{}%
 \contentsline {paragraph}{Solution choisie}{4}{}%
-\contentsline {paragraph}{Solution alternative}{4}{}%
 \contentsline {subsection}{\numberline {3.3}Requête 2}{4}{}%
 \contentsline {paragraph}{Description}{4}{}%
 \contentsline {paragraph}{Solution choisie}{4}{}%
-\contentsline {paragraph}{Solution alternative}{4}{}%
-\contentsline {subsection}{\numberline {3.4}Requête 3}{5}{}%
-\contentsline {paragraph}{Description}{5}{}%
+\contentsline {subsection}{\numberline {3.4}Requête 3}{4}{}%
+\contentsline {paragraph}{Description}{4}{}%
 \contentsline {paragraph}{Solution choisie}{5}{}%
-\contentsline {paragraph}{Solution alternative}{5}{}%
 \contentsline {subsection}{\numberline {3.5}Requête 4}{5}{}%
 \contentsline {paragraph}{Description}{5}{}%
 \contentsline {paragraph}{Solution choisie}{5}{}%
-\contentsline {paragraph}{Solution alternative}{5}{}%
 \contentsline {subsection}{\numberline {3.6}Requête 5}{5}{}%
 \contentsline {paragraph}{Description}{5}{}%
 \contentsline {paragraph}{Solution choisie}{5}{}%
-\contentsline {paragraph}{Solution alternative}{5}{}%
