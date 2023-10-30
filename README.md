@@ -13,6 +13,11 @@
 
 L'intégralité des scripts sql sont disponibles dans le sous dossier `scripts` du projet.
 
-La nomenclature des scripts sql est la suivante : `version_epp.ordre_execution.x_R0X....sql`
+De manière générale, la nomenclature des scripts sql est la suivante : `version_epp.ordre_execution.x_R0X....sql`
 
-Afin de lancer les scripts sql dans le bon ordre, un script bash est disponible : `scripts/make_full_script.sh`. Il produit un fichier sql à lancer dans son intégralité. 
+Les fonctions du jalon 2 seront réparties dans des fichiers de la manière suivante :
+- `3.1.0_SSQA_EMIR_Territoire` : fonctions atomiques sur les territoires
+- `3.2.0_SSQA_EMIR_Station` : fonctions atomiques sur les stations
+- `3.3.0_SSQA_EMIR_Mesure` : fonctions atomiques sur les mesures
+- `3.4.0_SSQA_EMIR_Variable` : fonctions atomiques sur les variables
+- `3.5.0_utils` : fonctions utilitaires (IQA, etc)
