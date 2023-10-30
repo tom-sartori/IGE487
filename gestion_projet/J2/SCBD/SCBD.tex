@@ -25,8 +25,8 @@ SSQA à l'avenir.
 L'ensemble de l'API est en PostgreSQL comme la base de données SSQA.
 \\\\
 Nous avons décidé de créer les fonctions atomiques correspondant aux primitives 
-fondamentales d'ÉMIR dans le schéma original de la base de données qui est privé.
-Les fonctions de production de rapport, elles sont dans un nouveau schéma public
+fondamentales d'ÉMIR ainsi que les fonctions de production de rapport
+dans un nouveau schéma public nommé \texttt{"SSQA\_PUB"}
 afin de permettre à l'utilisateur de les utiliser sans avoir à connaître le
 schéma privé.
 
@@ -37,11 +37,37 @@ schéma privé.
 pour les tables Territoire, Station, Variable et Mesure.
 
 \paragraph{Solution choisie}
-Dans le cadre de cette requête, nous avons décidé de créer différentes fonctions pour chaque primitive fondamentale.
-En effet, cette division des primitives fondamentales EMIR en plusieurs fonctions permet de simplifier la compréhension de la base de données et de faciliter la maintenance de celle-ci.
-Cette décomposition des fonctions tient compte des différentes liens qui existent entre les tables.
+Dans le cadre de cette requête, nous avons décidé de créer différentes fonctions et procédures pour chaque primitive fondamentale.
+En effet, cette division des primitives fondamentales EMIR en plusieurs fonctions et procédures permet de simplifier la compréhension
+ de la base de données et de faciliter la maintenance de celle-ci.
+Cette décomposition des fonctions tient compte des différentes liens qui existent entre les tables. 
+
+Par exemple,
+la procédure d'insertion générale d'une mesure insère également une erreur de mesure si la 
+valeur en argument est en dehors de l'intervalle de validité de la variable pour la norme précisée.
+
+Nous avons ainsi créé une quantité arbitraire de fonctions notamment pour l'évaluation,
+avec, toujours pour la table Mesure, les fonctions suivantes :
+\begin{itemize}
+    \item \texttt{mesure\_eva\_gen} sélection de toutes les mesures
+    \item \texttt{mesure\_eva\_stat} sélection de toutes les mesures d'une station
+    \item \texttt{mesure\_eva\_var} sélection de toutes les mesures d'une variable
+    \item \texttt{mesure\_eva\_date} sélection de toutes les mesures d'une date
+    \item \texttt{mesure\_eva\_stat\_var} sélection de toutes les mesures d'une station et d'une variable
+    \item \texttt{mesure\_eva\_stat\_date} sélection de toutes les mesures d'une station et d'une date  
+    \item \texttt{mesure\_eva\_stat\_var\_date} sélection de \textbf{la} mesure d'une station, d'une variable et d'une date
+    \item \texttt{mesure\_eva\_stat\_var\_after\_date} sélection de toutes les mesures d'une station, d'une variable et ayant eu lieu après une date
+    \item \texttt{mesure\_eva\_stat\_var\_between\_date} sélection de toutes les mesures d'une station, d'une variable et ayant eu lieu entre deux dates
+\end{itemize}
+
+Enfin, nous avons activé la suppression en cascade pour l'ensemble des tables, afin que les procédures
+de suppression soient fonctionnelles et plus simples à implémenter sans avoir à gérer les contraintes
+de clés étrangères. (cf. \texttt{3.0.0\_SSQA\_Foreign-key-on-cascade.sql})
 
 \paragraph{Solution alternative}
+Concernant le dernier point, nous aurions pu créer des procédures de suppression pour chaque table
+et gérer les contraintes de clés étrangères à la main, mais cela aurait été plus long à implémenter
+et nous n'y voyions pas d'avantage.
 
 \subsection{Requête 1}
 \paragraph{Description} Créer une fonction permet à l'utilisateur
