@@ -37,6 +37,9 @@ schéma privé.
 pour les tables Territoire, Station, Variable et Mesure.
 
 \paragraph{Solution choisie}
+Dans le cadre de cette requête, nous avons décidé de créer différentes fonctions pour chaque primitive fondamentale.
+En effet, cette division des primitives fondamentales EMIR en plusieurs fonctions permet de simplifier la compréhension de la base de données et de faciliter la maintenance de celle-ci.
+Cette décomposition des fonctions tient compte des différentes liens qui existent entre les tables.
 
 \paragraph{Solution alternative}
 
@@ -56,6 +59,7 @@ d'effectuer la requête suivante : "Quelles sont les stations du territoire
 de la ville de Sherbrooke ?"
 
 \paragraph{Solution choisie}
+La fonction prend en paramètre le nom du territoire et retourne les stations. Cette fonction en fonction du paramètre territoire va d'abord chercher le territoire dans la table Territoire. Ensuite, elle va chercher les stations qui ont le même id\_territoire que le territoire trouvé. Elle retourne les stations trouvées.
 
 \paragraph{Solution alternative}
 
