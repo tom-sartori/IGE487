@@ -15,11 +15,11 @@ Résumé : Rendre la valeur d’une mesure facultative, en cas d’absence s’a
 set schema 'SSQA';
 
 create domain Code_erreur_mesure as integer;
-create domain Description_rreur_mesure as varchar(255);
+create domain Description_erreur_mesure as varchar(255);
 
 create table Erreur_mesure_code (
     code Code_erreur_mesure not null,
-    nom Description_rreur_mesure not null,
+    nom Description_erreur_mesure not null,
     constraint Erreur_mesure_code_cc0 primary key (code)
 );
 
