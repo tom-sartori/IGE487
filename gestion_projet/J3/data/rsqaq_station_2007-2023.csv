@@ -1,0 +1,94 @@
+﻿ID_STATION,NOM_STATION,RA,ADRESSE,MUNICIPALITE,TYPE_MILIEU,DATE_OUVERTURE,DATE_FERMETURE,LATITUDE,LONGITUDE
+01805,Murdochville - Parc Lions,01,603 des Bouleaux,Merdochville,URBAIN,2005-01-01,2008-10-29,48.95485,-65.496557
+01810,Auclair,01,"66, rang St-Grégoire Nord",Auclair,FORET,1989-11-06,,47.733522,-68.706991
+02016,Saguenay - Parc Powell,02,"2885, Berthier",Saguenay,URBAIN,1992-10-11,,48.433895,-71.184586
+02022,Saguenay - UQAC,02,"789, boul. Des Étudiants",Saguenay,URBAIN,2002-09-24,,48.41638889,-71.0525
+02101,Alma - École Jean-Dequen,02,"90, Des Érables, Alma",Alma,URBAIN,1993-06-21,2014-10-20,48.569538,-71.635098
+02202,Saguenay - La Baie,02,"309, de la Fabrique, La Baie",Saguenay,URBAIN,1982-01-05,,48.34,-70.88166667
+02610,Rés. F. Ashuapmushuan - Pemonca,02,"Route 167, La Doré",La Doré,FORET,1990-10-01,,48.8097229,-72.7388916
+02621,Saguenay - Père Honorat,02,"762, Père Honorat, Laterrière",Saguenay,URBAIN,1990-02-16,2013-10-07,48.30379,-71.109131
+03006,Québec - Vieux-Limoilou,03,"600, rue des Sables",Québec,URBAIN,1989-08-14,,46.8211,-71.2208
+03011,Québec - Bibl. Monique-Corriveau,03,"1100, route de l'Église",Québec,URBAIN,2014-01-10,,46.769982,-71.29447
+03012,Québec - De l'Église,03,"999 Place de ville, Ste-Foy",Québec,URBAIN,1975-01-01,2013-11-24,46.77138889,-71.29638889
+03020,Québec - Parc Victorin-Beaucage,03,"420, rue Beaucage",Québec,URBAIN,1986-01-02,,46.81333333,-71.26666667
+03021,Québec - École Les Primevères,03,"1465, rue Félix-Antoine-Savard",Québec,URBAIN,2005-01-07,,46.77416667,-71.36972222
+03028,Québec - Collège St-Charles-Garnier,03,"1150, boul. René-Lévesque O",Québec,URBAIN,2000-09-06,,46.79472222,-71.24638889
+03039,Québec - Charlesbourg,03,Extrémité de la rue de l'Indre,Québec,URBAIN,2020-02-05,,46.8615,-71.2572
+03052,Québec - Henri IV,03,Aut. Henri IV Nord /Sortie 138,Québec,URBAIN,2018-11-22,,46.781331,-71.308711
+03061,Lévis - Charny,12,"2254 Rotonde, Charny",Lévis,URBAIN,2002-05-01,2015-11-18,46.709473,-71.267411
+03062,Lévis - Parc Georges Maranda,12,"200, rue des commandeurs",Lévis,URBAIN,2013-07-09,,46.806029,-71.167506
+03092,Québec - De Beaujeu,03,"727, 8ième Avenue, Limoilou",Québec,URBAIN,2010-04-01,2012-03-28,46.82666667,-71.22444444
+03093,Québec - Vitré,03,"1011 av. de Vitré, Québec",Québec,URBAIN,1981-03-03,,46.83180556,-71.21744444
+03096,Québec - Maison de naissance,03,"1280, 1ere avenue",Québec,URBAIN,2017-12-19,2019-09-30,46.82709,-71.234463
+03097,Québec - CLSC Basse-Ville,03,"50, rue St-Joseph Est",Québec,URBAIN,2017-12-19,2019-09-30,46.812598,-71.230062
+03123,Thetford Mines - École Saint-Noël,12,"993, 8e Ave",Thetford Mines,URBAIN,1975-01-01,,46.10361111,-71.28666667
+03200,Deschambault,03,"334, 3e Rang",Deschambault-Grondines,AGRICOLE,1991-06-08,,46.68222222,-71.96777778
+03202,Deschambault-ALCOA,03,,Deschambault-Grondines,AGRICOLE,2004-06-11,2010-10-26,46.692285,-71.967689
+03701,Sainte-Catherine-de-la-Jacques-Cartier,03,Face au 56 Laurier,Ste-Catherine-de-la-Jacques-Cartier,AGRICOLE,1995-04-10,2018-04-12,46.83777778,-71.62166667
+03712,Saint-François-de-l'Île-d'Orléans,03,"Face au 198, Royale",Saint-François-de-l'Île-d'Orléans,AGRICOLE,1988-11-29,2020-07-17,47.015309,-70.862536
+03720,Notre-Dame-du-Rosaire,12,Rang St-Louis,Notre-Dame-du-Rosaire,FORET,1989-05-16,,46.84916667,-70.45388889
+03730,Saint-Hilaire-de-Dorset,12,Rang Dorset,Saint-Hilaire-de-Dorset,FORET,1990-07-16,,45.82482,-70.85644
+04019,Trois-Rivières - Ursulines,04,"Face au 678, rue Hart",Trois-Rivières,URBAIN,1975-06-18,2011-06-28,46.3464,-72.537554
+04020,Trois-Rivières - Des Draveurs,04,Avenue des Draveurs,Trois-Rivières,URBAIN,2011-08-26,2014-06-25,46.35222222,-72.54
+04021,Trois-Rivières - École MEES,04,Rue Whitehead,Trois-Rivières,URBAIN,2014-07-23,,46.357211,-72.54612
+04048,Trois-Rivières - Cap-de-la-Madeleine,04,Inters. Roy et Dorval,Trois-Rivières,URBAIN,1975-08-12,,46.3625,-72.51
+04049,Trois-Rivières - Éc. l'Assomption,04,275 Montplaisir,Trois-Rivières,URBAIN,1985-04-19,2014-10-14,46.369909,-72.514422
+04052,Trois-Rivières - Rés. Louis-Denoncourt,04,"435, St-Roch",Trois-Rivières,URBAIN,1985-04-01,,46.34,-72.54611111
+04126,Shawinigan - Saint-Joseph,04,"1452 Châteauguay, Shawinigan",Shawinigan,URBAIN,1986-01-02,2015-06-02,46.567447,-72.729948
+04130,Shawinigan - Saint-Marc,04,"363, rue Frigon",Shawinigan,URBAIN,1977-08-04,,46.55444444,-72.73555556
+04203,Drummondville - Stade Jacques-Desautels,17,100 rue Baril,Drummondville,URBAIN,2020-12-18,,45.871301,-72.503182
+04404,La Tuque - Haut Saint-Maurice,04,654 Joffre,La Tuque,URBAIN,1987-03-01,2014-10-20,47.43539,-72.778284
+04504,Bécancour,17,"8310, boul. Bécancour",Bécancour,URBAIN,1995-01-27,,46.348525,-72.432152
+04711,Saint-Zéphirin-de-Courval,17,"701, rang Saint-Michel",Saint-Zéphirin-de-Courval,AGRICOLE,1988-11-07,,46.042277,-72.660133
+04730,Tingwick,17,Angle chemin Radar et Warwick,Tingwick,AGRICOLE,1988-08-01,,45.90583333,-71.94888889
+04740,Charette,04,"au nord du 170, 2e Rang",Charette,FORET,1988-11-26,,46.441525,-72.892414
+04750,Lac-Édouard,04,Derrière l'hôpital village,Lac-Édouard,FORET,1991-01-01,2021-11-11,47.64726,-72.290508
+04761,Lemieux,17,,Lemieux,AGRICOLE,2000-01-01,2016-09-21,46.30388889,-72.06083333
+05018,Sherbrooke - Parc Cambron,05,"655, rue Papineau",Sherbrooke,URBAIN,2003-09-24,2022-02-23,45.4125,-71.87444444
+05100,Granby - Parc Poitevin,05,"435, rue Reynolds",Granby,URBAIN,2021-08-13,,45.41863889,-72.73066667
+05209,Asbestos - École Sacré-Coeur,05,360 Blv. St-Luc,Val-des-Sources,URBAIN,1978-01-02,2020-10-24,45.77833333,-71.93833333
+05211,Val-des-Sources - Bolduc,05,"294, boulevard Saint-Luc",Val-des-Sources,URBAIN,2020-10-30,,45.77511,-71.93746
+05800,Eastman - Lac Stukely,05,Chemin Monbel,Eastman,FORET,1989-04-22,2016-09-13,45.365708,-72.265341
+05810,La Patrie,05,Rang Petit Canada Ouest,La Patrie,FORET,1991-01-23,,45.373304,-71.250166
+06205,Laval - Chomedey,13,"1160, boul. Pie X",Laval,URBAIN,1976-01-01,,45.5475,-73.748333
+06300,Terrebonne - Parc Vaillant,14,"901, rue Vaillant",Terrebonne,URBAIN,2016-11-15,,45.704754,-73.657777
+06329,Saint-Jérôme - Rés. Marie-Lucie,15,"290, rue Brière",Saint-Jérôme,URBAIN,1993-05-31,,45.77638889,-74.00944444
+06355,Joliette - Graymont,14,"1450, Lanaudière",Joliette,URBAIN,1997-12-06,,46.01111111,-73.45444444
+06500,L'Assomption,14,"801,  St-Étienne",L'Assomption,URBAIN,1996-05-10,2017-07-12,45.80916667,-73.43472222
+06501,Saint-Faustin-Lac-Carré,15,Chemin du lac (Lac Caribou),Mont-Blanc,FORET,1989-04-04,,46.03499985,-74.48083496
+06600,Longueuil,16,"Face au 1819, rue Victoria",Longueuil,URBAIN,1975-01-03,,45.52166667,-73.4875
+06603,Brossard - Parc Sorbonne,16,"8405, avenue Sorbonne",Brossard,URBAIN,2016-01-28,,45.448663,-73.480819
+06613,Varennes - Ch. de la Baronnie,16,4744 Montée Baronie,Varennes,URBAIN,1994-06-18,2016-10-05,45.72289,-73.376766
+06614,Varennes 2,16,1870 Rte Marie-Victorin,Varennes,URBAIN,2000-02-16,2011-01-14,45.673519,-73.439393
+06620,Saint-Jean-sur-Richelieu - L'Acadie,16,"Ferme expér., 1134 Route 219",Saint-Jean-sur-Richelieu,AGRICOLE,1999-08-10,,45.29416667,-73.34888889
+06641,Saint-Simon,16,"Derrière le 83, 4ième rang Est",Saint-Simon,AGRICOLE,1988-11-05,,45.715539,-72.840411
+06672,Sorel-Tracy - Vieux-Sorel,16,"80, rue George",Sorel-Tracy,URBAIN,1975-01-03,2017-02-16,46.04472222,-73.11388889
+06678,Saint-Joseph-de-Sorel - École Martel,16,"Face au 113, Léon-XIII",Saint-Joseph-de-Sorel,URBAIN,1987-12-02,,46.045,-73.12972222
+06760,Brossard - Parc Océanie,16,"8361 Rue Océanie, Brossard",Brossard,URBAIN,1993-04-05,2016-01-26,45.442947,-73.468673
+06804,Saint-Anicet,16,"1128, de la Rivière-La Guerre",Saint-Anicet,AGRICOLE,1994-06-18,,45.12055556,-74.28944444
+06807,Projet Mercier 1,16,Arrière du 88 Legault,Mercier,URBAIN,2008-07-08,2011-11-24,45.30555556,-73.73305556
+06808,Projet Mercier 2,16,"25, rue Boyer",Saint-Isidore,URBAIN,2008-07-08,2011-11-24,45.30055556,-73.68277778
+06809,Projet Mercier 3,16,"Arrière du 768, Rang St-Régis",Saint-Isidore,URBAIN,2008-07-08,2011-11-24,45.29472222,-73.68472222
+06810,Projet Mercier 4,16,"1421, rang Ste-Marguerite",Mercier,URBAIN,2009-01-14,2011-11-24,45.28353,-73.74093
+07002,Gatineau - Hull,07,"255, rue St-Rédempteur",Gatineau,URBAIN,1996-11-21,,45.43611111,-75.72333333
+07200,Mont-St-Michel,15,"215, 4ième Rang Gravel",Ferme-Neuve,FORET,1991-01-19,,46.7687,-75.4326
+07400,Parc de la Gatineau - La-Pêche,07,"Lac Philippe, Masham",La Pêche,FORET,1989-03-11,,45.6222229,-76.01777649
+08006,"Rouyn-Noranda - 250, 6e Rue",08,"250, 6e Rue",Rouyn-Noranda,URBAIN,2001-11-21,,48.25034,-79.014109
+08007,Rouyn-Noranda - Carter,08,En face du 26 rue Carter,Rouyn-Noranda,URBAIN,2022-06-10,,48.2485,-79.01125
+08041,Rouyn-Noranda - Notre-Dame,08,"895, Perreault Est",Rouyn-Noranda,URBAIN,1975-01-01,2010-05-15,48.238746,-78.991033
+08042,Rouyn-Noranda - Parc Tremblay,08,"1570 Rue Paradis,",Rouyn-Noranda,URBAIN,1985-08-14,,48.234092,-78.982753
+08044,Rouyn-Noranda - Mgr Rhéaume Est,08,"26, rue Mgr Rhéaume Est",Rouyn-Noranda,URBAIN,2002-12-05,,48.235738,-79.019808
+08045,Rouyn-Noranda - École Murdoch,08,"50, rue Murdoch,",Rouyn-Noranda,URBAIN,1985-08-05,,48.246126,-79.013348
+08046,Rouyn-Noranda - Usine traitement eau,08,"145 Avenue Lafontaine, Évain",Rouyn-Noranda,URBAIN,2002-06-19,2010-05-15,48.227968,-79.129902
+08047,Rouyn-Noranda - Maison de la fonderie,08,"1, rue Carter",Rouyn-Noranda,URBAIN,2005-04-13,2010-05-15,48.2475,-79.00861111
+08048,Rouyn-Noranda - Caserne de pompier,08,"111, 9e rue",Rouyn-Noranda,URBAIN,2005-04-14,2010-05-15,48.2475,-79.01944444
+08049,Rouyn-Noranda - Centre polymétier,08,"15, 10e Rue",Rouyn-Noranda,URBAIN,2005-04-14,,48.24494,-79.023149
+08401,Témiscaming,08,Rue Boucher,Témiscaming,URBAIN,1993-05-09,,46.721691,-79.099003
+08450,Senneterre,08,Chemin Rivière Bell,Senneterre,FORET,1992-02-25,,48.4317,-77.1967
+09350,Forestville - Route 385,09,À 15 km route 385,Colombier,FORET,1992-09-23,2019-08-07,48.855288,-69.098704
+10200,Radisson,10,"Route de la Baie James, km 598",G.R. d'Eeyou Istchee Baie-James,FORET,2017-11-28,,53.692071,-77.741918
+05013,Sherbrooke - Parc Webster,05,"713 Rue Albert, Sherbrooke",Sherbrooke,URBAN,12-avr-75,17-sept-13,45.40305556,-71.89
+05502,Lac-Mégantic - Centre sportif,05,"5400, rue Papineau",Lac-Mégantic,URBAN,16-janv-14,29-juin-15,45.577762,-70.879843
+05503,Lac-Mégantic - Fatima,05,"6318, rue Salaberry",Lac-Mégantic,URBAN,29-avr-14,02-nov-15,45.57283,-70.8776
+05504,Lac-Mégantic - Du Barrage,05,Boul J-M Tardif /Ch du barrage,Frontenac,URBAN,21-mai-14,28-sept-17,45.5867,-70.85555
+09061,Sept-Îles - Gamache,09,138 rue Gamache,Sept-Îles,URBAN,21-juin-12,17-juin-13,50.201964,-66.370444
