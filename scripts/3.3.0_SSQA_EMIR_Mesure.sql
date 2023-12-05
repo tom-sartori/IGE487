@@ -3,20 +3,12 @@
 -- 3.3.0_SSQA_EMIR_Mesure.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
-<<<<<<< Updated upstream
-Encodage : UTF-8, sans BOM; fin de ligne Unix (LF)
-=======
 Encodage : UTF-8, CRLF
->>>>>>> Stashed changes
 Plateforme : PostgreSQL 12 à 15
 Responsable : alexandre.theisse@usherbrooke.ca, louis-vincent.capelli@usherbrooke.ca, raphael.turcotte2@usherbrooke.ca, tom.sartori@usherbrooke.ca,
 Version : 1.0.0
 Statut : en vigueur
-<<<<<<< Updated upstream
-Résumé : Ajout des procédures et fonctions EMIR pour les stations.
-=======
 Résumé : Ajout des procédures et fonctions EMIR pour les mesures.
->>>>>>> Stashed changes
 -- =========================================================================== A
 */
 
@@ -24,8 +16,6 @@ Résumé : Ajout des procédures et fonctions EMIR pour les mesures.
 create schema if not exists "SSQA_PUB";
 set schema 'SSQA_PUB';
 
-<<<<<<< Updated upstream
-=======
 -- mesure_eva_gen
 --
 -- Fonction d'évaluation de toutes les mesures.
@@ -269,7 +259,6 @@ create or replace procedure mesure_ret_gen_sst_exs(i_station_id "SSQA".station_c
         and moment = i_date;
     $$;
 
->>>>>>> Stashed changes
 /*
 -- =========================================================================== Z
 Contributeurs :
@@ -279,11 +268,7 @@ Contributeurs :
     turr3004 raphael.turcotte2@usherbrooke.ca
 
 Tâches réalisées :
-<<<<<<< Updated upstream
-  2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les stations.
-=======
   2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les mesures.
->>>>>>> Stashed changes
 
 -- -----------------------------------------------------------------------------
 -- 3.3.0_SSQA_EMIR_Mesure.sql
