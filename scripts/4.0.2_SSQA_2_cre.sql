@@ -181,18 +181,35 @@ create domain Station_Immatriculation
 create domain station_code
     Text
     check (length(value) between 1 and 15); 
-create domain estampille
+create domain estampille as
 timestamp
+
+-- Création attribut mobilité
+create domain Station_mobilite as boolean;
 create table Station (
     code station_code not null,
     debut_service estampille not null,
     fin_service estampille,
-    mobile boolean not null,
+    mobile Station_mobilite not null,
     constraint Station_cc0 primary key (code)
     constraint Station_cc1 unique (debut_service, fin_service)
     
     );
-
+-- Position
+--
+-- La position d'une station est modélisée par un code de station, une latitude, une longitude, une altitude, une date de début et une date de fin.
+--
+create table Position (
+    station Station_Code not null,
+    latitude Latitude not null,
+    longitude Longitude not null,
+    altitude Altitude not null,
+    debut Estampille not null,
+    fin Estampille,
+    constraint Position_cc0 primary key (station, debut),
+    constraint Position_cr0 foreign key (station) references Station(code),
+    constraint Position_dates_valides check (fin > debut)
+);
 -- immatriculation
 create table immatriculation(
     station station_code not null,
@@ -209,6 +226,262 @@ create table station_nom(
     constraint station_nom_cr0 foreign key (code) references Station(code)
     );
 
+create domain Hors_service_code 
+as integer not null;
+
+create domain Description_hors_service
+as varchar(255) not null;
+
+-- Nature_Hors_service
+--
+-- La nature d'un hors service est modélisée par un code et une description.
+--
+create table Nature_Hors_service (
+    code Hors_service_code not null,
+    description Description_hors_service not null,
+    constraint Nature_hors_service_cc0 primary key (code)
+);
+
+-- Hors_service
+--
+-- Un hors service est modélisé par une station, une date de début, une date de fin et une nature.
+create table Hors_service (
+    station Station_Code not null,
+    debut Estampille not null,
+    fin Estampille not null,
+    nature Hors_service_code not null,
+   
+    constraint Hors_service_cc0 primary key (station, debut, nature),
+    constraint Hors_service_cr0 foreign key (station) references Station(code),
+    constraint Hors_service_cr1 foreign key (nature) references Nature_Hors_service(code),
+    constraint Hors_service_dates_valides check (fin >= debut)
+);
+
+create domain Code_erreur_mesure as integer;
+create domain Description_erreur_mesure as varchar(255);
+-- Erreur_mesure_code
+create table Erreur_mesure_code (
+    code Code_erreur_mesure not null,
+    nom Description_erreur_mesure not null,
+    constraint Erreur_mesure_code_cc0 primary key (code)
+);
+-- Erreur_mesure
+create table Erreur_mesure (
+    station Station_Code not null,
+    moment Estampille not null,
+    variable Variable_code not null,
+    erreur_mesure_code Code_erreur_mesure not null,
+    constraint Erreur_mesure_cc0 primary key (station, moment, variable, erreur_mesure_code),
+    constraint Erreur_mesure_cr0 foreign key (station, moment, variable) references Mesure(station, moment, variable),
+    constraint Erreur_mesure_cr1 foreign key (erreur_mesure_code) references Erreur_mesure_code(code)
+);
+-- Creation de l'enum methode_enum.
+create type methode_enum as enum('Moyenne horaire', 'Moyenne des 3 dernières heures', 'Maximum sur quatre minutes');
+
+
+
+-- Capacite
+begin transaction;
+set transaction read write;
+    alter table "SSQA".capacite
+    drop constraint Capacite_cr0;
+
+    alter table "SSQA".capacite
+    add constraint Capacite_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".capacite
+    drop constraint Capacite_cr1;
+
+    alter table "SSQA".capacite
+    add constraint Capacite_cr1 foreign key (variable) references Variable (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Distribution
+begin transaction;
+set transaction read write;
+    alter table "SSQA".distribution
+    drop constraint Distribution_cr0;
+
+    alter table "SSQA".distribution
+    add constraint Distribution_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".distribution
+    drop constraint Distribution_cr1;
+
+    alter table "SSQA".distribution
+    add constraint Distribution_cr1 foreign key (territoire) references Territoire (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Mesure
+begin transaction;
+set transaction read write;
+    alter table "SSQA".mesure
+    drop constraint Mesure_cr0;
+
+    alter table "SSQA".mesure
+    add constraint Mesure_cr0 foreign key (station, variable) references Capacite on delete cascade on update cascade;
+commit transaction;
+
+
+-- Composition_unite
+begin transaction;
+set transaction read write;
+    alter table "SSQA".composition_unite
+    drop constraint Composition_unite_cr0;
+
+    alter table "SSQA".composition_unite
+    add constraint Composition_unite_cr0 foreign key (symbole_unite_composite) references Unite (sym) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".composition_unite
+    drop constraint Composition_unite_cr1;
+
+    alter table "SSQA".composition_unite
+    add constraint Composition_unite_cr1 foreign key (symbole_unite_fondamentale) references Unite_fond (symbole) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Variable
+begin transaction;
+set transaction read write;
+    alter table "SSQA".variable
+    drop constraint Variable_cr0;
+
+    alter table "SSQA".variable
+    add constraint Variable_cr0 foreign key (unite) references Unite (sym) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Exigence
+begin transaction;
+set transaction read write;
+    alter table "SSQA".exigence
+    drop constraint Exigence_cr0;
+
+    alter table "SSQA".exigence
+    add constraint Exigence_cr0 foreign key (variable) references Variable (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".exigence
+    drop constraint Exigence_cr1;
+
+    alter table "SSQA".exigence
+    add constraint Exigence_cr1 foreign key (norme) references Norme (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".exigence
+    drop constraint Exigence_cr2;
+
+    alter table "SSQA".exigence
+    add constraint Exigence_cr2 foreign key (periode_unite) references Unite (sym) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Validation
+begin transaction;
+set transaction read write;
+    alter table "SSQA".validation
+    drop constraint Validation_cr0;
+
+    alter table "SSQA".validation
+    add constraint Validation_cr0 foreign key (variable) references Variable (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".validation
+    drop constraint Validation_cr1;
+
+    alter table "SSQA".validation
+    add constraint Validation_cr1 foreign key (norme) references Norme (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Hors_service
+begin transaction;
+set transaction read write;
+    alter table "SSQA".hors_service
+    drop constraint Hors_service_cr0;
+
+    alter table "SSQA".hors_service
+    add constraint Hors_service_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".hors_service
+    drop constraint Hors_service_cr1;
+
+    alter table "SSQA".hors_service
+    add constraint Hors_service_cr1 foreign key (nature) references Nature_Hors_service (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Position
+begin transaction;
+set transaction read write;
+    alter table "SSQA".position
+    drop constraint Position_cr0;
+
+    alter table "SSQA".position
+    add constraint Position_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Immatriculation
+begin transaction;
+set transaction read write;
+    alter table "SSQA".immatriculation
+    drop constraint immatriculation_cr0;
+
+    alter table "SSQA".immatriculation
+    add constraint immatriculation_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Nom_station
+begin transaction;
+set transaction read write;
+    alter table "SSQA".nom_station
+    drop constraint Nom_station_cr0;
+
+    alter table "SSQA".nom_station
+    add constraint Nom_station_cr0 foreign key (code) references Station (code) on delete cascade on update cascade;
+commit transaction;
+
+
+-- Erreur_mesure
+begin transaction;
+set transaction read write;
+    alter table "SSQA".erreur_mesure
+    drop constraint Erreur_mesure_cr0;
+
+    alter table "SSQA".erreur_mesure
+    add constraint Erreur_mesure_cr0 foreign key (station, moment, variable) references Mesure (station, moment, variable) on delete cascade on update cascade;
+commit transaction;
+
+begin transaction;
+set transaction read write;
+    alter table "SSQA".erreur_mesure
+    drop constraint Erreur_mesure_cr1;
+
+    alter table "SSQA".erreur_mesure
+    add constraint Erreur_mesure_cr1 foreign key (erreur_mesure_code) references Erreur_mesure_code (code) on delete cascade on update cascade;
+commit transaction;
 -- Ajout contrainte pour la table variable
 create function verifier_validation() returns trigger as $$
 begin
@@ -235,3 +508,30 @@ end;
 $$ language plpgsql;
 
 create trigger valider_exigence_trigger before insert or update on exigence for each row execute function valider_exigence();
+
+
+create function verifier_periode_unite() returns trigger as $$
+begin
+    if (exists (select from composition_unite where composition_unite.symbole_unite_composite = new.periode_unite and composition_unite.symbole_unite_fondamentale != 's')) then
+        raise exception 'L''unité de la période n''est pas une unité de temps';
+    end if;
+    return new;
+end;
+$$ language plpgsql;
+
+create trigger verifier_periode_unite_trigger before insert or update on exigence for each row execute function verifier_periode_unite();
+
+create function inserer_station(code Station_Code, nom Station_Nom, debut_service Estampille, fin_service Estampille, mobilite boolean) returns void as $$
+begin
+    if mobilite then
+        insert into station(code, debut_service, fin_service, mobilite)
+        values (code, debut_service, fin_service, mobilite);
+        insert into nom_station(code, nom) 
+        values (code, nom);
+    else
+        insert into station(code, debut_service, fin_service, mobilite)
+        values (code, debut_service, fin_service, mobilite);
+    end if;
+end;
+$$ language plpgsql;
+
