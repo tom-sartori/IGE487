@@ -33,21 +33,7 @@ insert into Capacite (station, variable) values
     ('15000', 'NO2'), ('15000', 'SO2'), ('15000', 'CO'), ('15000', 'PM25'), ('15000', 'O3'),
     ('16000', 'NO2'), ('16000', 'SO2'), ('16000', 'CO'), ('16000', 'PM25');
   -- Territoire de Memprémagog (à venir)
-  -- autres territoires
-
--- Territoire
-insert into Territoire (code, nom) values
-  ('Magog', 'Canton de Memprémagog'),
-  ('Sherbrooke', 'Ville de Sherbrooke');
-
--- Distribution
-insert into Distribution (territoire, station) values
-  ('Sherbrooke', '10000'),
-  ('Sherbrooke', '12000'),
-  ('Sherbrooke', '13000'),
-  ('Sherbrooke', '14000'),
-  ('Sherbrooke', '15000'),
-  ('Sherbrooke', '16000');
+  -- autres territoires (à venir)
 
 -- Exigence
 insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
