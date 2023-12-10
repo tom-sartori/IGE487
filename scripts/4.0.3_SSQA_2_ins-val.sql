@@ -80,3 +80,75 @@ insert into Validation (variable, norme, min, max) values
   ('O3', 'NQMAA_2014', 0, 800);
 
 -- Station
+/* inserer ces valeurs dans la table station 
+04019,Trois-Rivières - Ursulines,04,"Face au 678, rue Hart",Trois-Rivières,URBAIN,1975-06-18,2011-06-28,46.3464,-72.537554
+04020,Trois-Rivières - Des Draveurs,04,Avenue des Draveurs,Trois-Rivières,URBAIN,2011-08-26,2014-06-25,46.35222222,-72.54
+04021,Trois-Rivières - École MEES,04,Rue Whitehead,Trois-Rivières,URBAIN,2014-07-23,,46.357211,-72.54612
+04048,Trois-Rivières - Cap-de-la-Madeleine,04,Inters. Roy et Dorval,Trois-Rivières,URBAIN,1975-08-12,,46.3625,-72.51
+04049,Trois-Rivières - Éc. l'Assomption,04,275 Montplaisir,Trois-Rivières,URBAIN,1985-04-19,2014-10-14,46.369909,-72.514422
+*/
+insert into Station (code, debut, fin , mobilite) values
+(04019, '1975-06-18', '2011-06-28', false),
+(04020, '2011-08-26', '2014-06-25', false),
+(04021, '2014-07-23', null, false),
+(04048, '1975-08-12', null, false),
+(04049, '1985-04-19', '2014-10-14', false);
+
+insert into immatriculation (code , immatriculation) values
+(04019, 'Trois-Rivières - Ursulines'),
+(04020, 'Trois-Rivières - Des Draveurs'),
+(04021, 'Trois-Rivières - École MEES'),
+(04048, 'Trois-Rivières - Cap-de-la-Madeleine'),
+(04049, 'Trois-Rivières - Éc. l''Assomption');
+
+insert into position (code, latitude, longitude, altitude) values
+(04019, 46.3464, -72.537554, null),
+(04020, 46.35222222, -72.54, null),
+(04021, 46.357211, -72.54612, null),
+(04048, 46.3625, -72.51, null),
+(04049, 46.369909, -72.514422, null);
+
+insert into nom_station (code, nom) values
+(04019, 'Face au 678, rue Hart'),
+(04020, 'Avenue des Draveurs'),
+(04021, 'Rue Whitehead'),
+(04048, 'Inters. Roy et Dorval'),
+(04049, '275 Montplaisir');
+
+insert into territoire (code, nom) values
+(04, 'Trois-Rivières');
+
+insert into distribution (territoire, station) values
+(04, 04019),
+(04, 04020),
+(04, 04021),
+(04, 04048),
+(04, 04049);
+
+insert into capacite (station, variable) values
+(04019, 'NO2'),
+(04019, 'SO2'),
+(04019, 'CO'),
+(04019, 'PM25'),
+(04019, 'O3'),
+(04020, 'NO2'),
+(04020, 'SO2'),
+(04020, 'CO'),
+(04020, 'PM25'),
+(04020, 'O3'),
+(04021, 'NO2'),
+(04021, 'SO2'),
+(04021, 'CO'),
+(04021, 'PM25'),
+(04021, 'O3'),
+(04048, 'NO2'),
+(04048, 'SO2'),
+(04048, 'CO'),
+(04048, 'PM25'),
+(04048, 'O3'),
+(04049, 'NO2'),
+(04049, 'SO2'),
+(04049, 'CO'),
+(04049, 'PM25'),
+(04049, 'O3');
+
