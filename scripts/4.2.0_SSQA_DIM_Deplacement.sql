@@ -30,16 +30,6 @@ CREATE TABLE Deplacement_fait
     PRIMARY KEY ("station", "debut_deplacement")
 );
 
-CREATE TABLE Position
-(
-    "station"   "SSQA".station_code NOT NULL,
-    "debut"     "SSQA".estampille   NOT NULL,
-    "longitude" "SSQA".longitude    NOT NULL,
-    "latitude"  "SSQA".latitude     NOT NULL,
-    "altitude"  "SSQA".altitude     NOT NULL,
-    PRIMARY KEY ("station", "debut")
-);
-
 ALTER TABLE Deplacement_fait
     ADD CONSTRAINT "Deplacement_fait_cr0" FOREIGN KEY ("station") REFERENCES Station ("code");
 
