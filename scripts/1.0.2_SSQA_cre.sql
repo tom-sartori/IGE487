@@ -203,7 +203,6 @@ create table Mesure (
   moment Estampille not null,
   variable Variable_Code not null,
   valeur Mesure_Valeur not null,
-  valide Boolean not null,
   constraint Mesure_cc0 primary key (station, moment, variable),
   constraint Mesure_cr0 foreign key (station, variable) references Capacite
   );

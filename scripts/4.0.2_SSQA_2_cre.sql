@@ -63,6 +63,52 @@ create table Variable (
   constraint Variable_cr0 foreign key (unite) references Unite(sym)
   );
 
+
+-- Capacité
+--
+-- La station «station» a la capacité de mesurer la variable «variable».
+--
+create table Capacite (
+  station Station_Code not null,
+  variable Variable_Code not null,
+  constraint Capacite_cc0 primary key (station, variable),
+  constraint Capacite_cr0 foreign key (station) references Station (code),
+  constraint Capacite_cr1 foreign key (variable) references Variable (code)
+  );
+--
+create domain Territoire_Code
+  Text
+  check (length(value) between 1 and 15);
+create domain Territoire_Nom
+  Text
+  check (length(value) between 1 and 63);
+create table Territoire (
+  code Territoire_Code not null,
+  nom Territoire_Nom not null,
+  constraint Territoire_cc0 primary key (code),
+  constraint Territoire_cc1 unique (nom)
+  );
+-- Distribution
+--
+-- La station «station» se rapporte au territoire «territoire».
+--
+create table Distribution (
+  territoire Territoire_Code not null,
+  station Station_Code not null,
+  constraint Distribution_cc0 primary key (territoire, station),
+  constraint Distribution_cr1 foreign key (territoire) references Territoire (code),
+  constraint Distribution_cr0 foreign key (station) references Station (code)
+  );
+
+-- Mesure
+create table Mesure (
+  station Station_Code not null,
+  moment Estampille not null,
+  variable Variable_Code not null,
+  valeur Mesure_Valeur not null,
+  constraint Mesure_cc0 primary key (station, moment, variable),
+  constraint Mesure_cr0 foreign key (station, variable) references Capacite
+  );
   create domain unite_coef
     Double precision;
 -- Unite
@@ -134,10 +180,10 @@ create table validation (
   norme Norme_code not null,
   min Mesure_Valeur not null,
   max Mesure_Valeur not null,
-  constraint validation_cc0 primary key (variable, norme),
-  constraint validation_cr0 foreign key (variable) references Variable(code),
-  constraint validation_cr1 foreign key (norme) references Norme(code),
-  constraint validation_min_max check (min <= max)
+  constraint Validation_cc0 primary key (variable, norme),
+  constraint Validation_cr0 foreign key (variable) references Variable(code),
+  constraint Validation_cr1 foreign key (norme) references Norme(code),
+  constraint Validation_min_max check (min <= max)
   );
 
 -- Exigence
@@ -298,6 +344,7 @@ set transaction read write;
     alter table "SSQA".capacite
     add constraint Capacite_cr1 foreign key (variable) references Variable (code) on delete cascade on update cascade;
 commit transaction;
+
 
 
 -- Distribution
