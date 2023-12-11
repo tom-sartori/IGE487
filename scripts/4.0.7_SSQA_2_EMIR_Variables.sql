@@ -1,6 +1,6 @@
 /*
 -- =========================================================================== A
--- 3.4.0_SQQA_2_EMIR_Variable.sql
+-- 3.4.0_SSQA_2_EMIR_Variable.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
 Encodage : UTF-8, CRLF
@@ -13,8 +13,8 @@ Résumé : Ajout des procédures et fonctions EMIR pour les variables.
 */
 
 -- Définition du schéma
-create schema if not exists "SQQA_2_PUB";
-set schema 'SQQA_2_PUB';
+create schema if not exists "SSQA_2_PUB";
+set schema 'SSQA_2_PUB';
 
 -- variable_eva_gen
 --
@@ -23,11 +23,11 @@ set schema 'SQQA_2_PUB';
 -- @return toutes les variables.
 --
 create or replace function variable_eva_gen()
-    returns setof "SQQA_2".variable
+    returns setof "SSQA_2".variable
     language sql
     as $$
         select *
-        from "SQQA_2".variable
+        from "SSQA_2".variable
     $$;
 
 -- variable_eva_one
@@ -37,12 +37,12 @@ create or replace function variable_eva_gen()
 -- @param i_variable_id le code de la variable.
 -- @return la variable.
 --
-create or replace function variable_eva_one(i_variable_id "SQQA_2".variable_code)
-    returns "SQQA_2".variable
+create or replace function variable_eva_one(i_variable_id "SSQA_2".variable_code)
+    returns "SSQA_2".variable
     language sql
     as $$
         select *
-        from "SQQA_2".variable
+        from "SSQA_2".variable
         where code = i_variable_id
     $$;
 
@@ -53,12 +53,12 @@ create or replace function variable_eva_one(i_variable_id "SQQA_2".variable_code
 -- @param i_unite_symbole le symbole de l'unité.
 -- @return toutes les variables de l'unité.
 --
-create or replace function variable_eva_unite(i_unite_symbole "SQQA_2".unite_symbole)
-    returns setof "SQQA_2".variable
+create or replace function variable_eva_unite(i_unite_symbole "SSQA_2".unite_symbole)
+    returns setof "SSQA_2".variable
     language sql
     as $$
         select *
-        from "SQQA_2".variable
+        from "SSQA_2".variable
         where unite = i_unite_symbole
     $$;
 
@@ -72,11 +72,11 @@ create or replace function variable_eva_unite(i_unite_symbole "SQQA_2".unite_sym
 -- @param i_variable_valref la nouvelle valeur de référence (optionnel).
 -- @param i_variable_methode la nouvelle méthode (optionnel).
 --
-create or replace function variable_mod_gen_sst_exs(i_variable_id "SQQA_2".variable_code, i_variable_nom "SQQA_2".variable_nom, i_unite_symbole "SQQA_2".unite_symbole, i_variable_valref "SQQA_2".mesure_valeur, i_variable_methode "SQQA_2".methode_enum)
+create or replace function variable_mod_gen_sst_exs(i_variable_id "SSQA_2".variable_code, i_variable_nom "SSQA_2".variable_nom, i_unite_symbole "SSQA_2".unite_symbole, i_variable_valref "SSQA_2".mesure_valeur, i_variable_methode "SSQA_2".methode_enum)
     returns void
     language sql
     as $$
-        update "SQQA_2".variable
+        update "SSQA_2".variable
         set nom = coalesce(i_variable_nom, nom),
             unite = coalesce(i_unite_symbole, unite),
             valref = coalesce(i_variable_valref, valref),
@@ -94,10 +94,10 @@ create or replace function variable_mod_gen_sst_exs(i_variable_id "SQQA_2".varia
 -- @param i_variable_valref la valeur de référence.
 -- @param i_variable_methode la méthode.
 --
-create or replace procedure variable_ins_gen_sst_exs(i_variable_id "SQQA_2".variable_code, i_variable_nom "SQQA_2".variable_nom, i_unite_symbole "SQQA_2".unite_symbole, i_variable_valref "SQQA_2".mesure, i_variable_methode "SQQA_2".methode_enum)
+create or replace procedure variable_ins_gen_sst_exs(i_variable_id "SSQA_2".variable_code, i_variable_nom "SSQA_2".variable_nom, i_unite_symbole "SSQA_2".unite_symbole, i_variable_valref "SSQA_2".mesure, i_variable_methode "SSQA_2".methode_enum)
     language sql
     as $$
-        insert into "SQQA_2".variable
+        insert into "SSQA_2".variable
         values (i_variable_id, i_variable_nom, i_unite_symbole, i_variable_valref, i_variable_methode)
     $$;
 
@@ -107,10 +107,10 @@ create or replace procedure variable_ins_gen_sst_exs(i_variable_id "SQQA_2".vari
 --
 -- @param i_variable_id le code de la variable.
 --
-create or replace procedure variable_ret_gen_sst_exs(i_variable_id "SQQA_2".variable_code)
+create or replace procedure variable_ret_gen_sst_exs(i_variable_id "SSQA_2".variable_code)
     language sql
     as $$
-        delete from "SQQA_2".variable
+        delete from "SSQA_2".variable
         where code = i_variable_id
     $$;
 
@@ -126,6 +126,6 @@ Tâches réalisées :
   2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les variables.
 
 -- -----------------------------------------------------------------------------
--- 3.4.0_SQQA_2_EMIR_Variable.sql
+-- 3.4.0_SSQA_2_EMIR_Variable.sql
 -- =========================================================================== Z
 */

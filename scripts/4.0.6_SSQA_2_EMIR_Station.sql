@@ -1,6 +1,6 @@
 /*
 -- =========================================================================== A
--- 3.2.0_SQQA_2_EMIR_Station.sql
+-- 3.2.0_SSQA_2_EMIR_Station.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
 Encodage : UTF-8, CRLF
@@ -13,8 +13,8 @@ Résumé : Ajout des procédures et fonctions EMIR pour les stations.
 */
 
 -- Définition du schéma
-create schema if not exists "SQQA_2_PUB";
-set schema 'SQQA_2_PUB';
+create schema if not exists "SSQA_2_PUB";
+set schema 'SSQA_2_PUB';
 
 -- station_eva_gen
 --
@@ -23,11 +23,11 @@ set schema 'SQQA_2_PUB';
 -- @return les identifiants de toutes les stations.
 --
 create or replace function station_eva_gen()
-    returns setof "SQQA_2".station_code
+    returns setof "SSQA_2".station_code
     language sql as
     $$
         select code
-        from "SQQA_2".station;
+        from "SSQA_2".station;
     $$;
 
 -- station_eva_mobile
@@ -37,11 +37,11 @@ create or replace function station_eva_gen()
 -- @return les identifiants des stations mobiles.
 --
 create or replace function station_eva_mobile()
-    returns setof "SQQA_2".station_code
+    returns setof "SSQA_2".station_code
     language sql as
     $$
         select code
-        from "SQQA_2".station
+        from "SSQA_2".station
         where mobilite = true;
     $$;
 
@@ -52,11 +52,11 @@ create or replace function station_eva_mobile()
 -- @return les identifiants des stations fixes.
 --
 create or replace function station_eva_fixe()
-    returns setof "SQQA_2".station_code
+    returns setof "SSQA_2".station_code
     language sql as
     $$
         select code
-        from "SQQA_2".station
+        from "SSQA_2".station
         where mobilite = false;
     $$;
 
@@ -69,19 +69,19 @@ create or replace function station_eva_fixe()
 -- @return tous les attributs concernant la station.
 --
 create or replace function station_eva_unique(
-    i_station_code "SQQA_2".station_code
+    i_station_code "SSQA_2".station_code
     )
     returns table (
-        code "SQQA_2".station_code,
-        debut_service "SQQA_2".estampille,
-        fin_service   "SQQA_2".estampille,
-        mobilite      "SQQA_2".station_mobilite,
-        nom           "SQQA_2".station_nom,
-        immatriculation "SQQA_2".immatriculation_code,
-        latitude      "SQQA_2".latitude,
-        longitude     "SQQA_2".longitude,
-        altitude      "SQQA_2".altitude,
-        territoire    "SQQA_2".territoire_code
+        code "SSQA_2".station_code,
+        debut_service "SSQA_2".estampille,
+        fin_service   "SSQA_2".estampille,
+        mobilite      "SSQA_2".station_mobilite,
+        nom           "SSQA_2".station_nom,
+        immatriculation "SSQA_2".immatriculation_code,
+        latitude      "SSQA_2".latitude,
+        longitude     "SSQA_2".longitude,
+        altitude      "SSQA_2".altitude,
+        territoire    "SSQA_2".territoire_code
     )
     language sql as
     $$
@@ -96,11 +96,11 @@ create or replace function station_eva_unique(
             p.longitude,
             p.altitude,
             d.territoire
-        from "SQQA_2".station s
-        left join "SQQA_2".nom_station ns on s.code = ns.code
-        left join "SQQA_2".immatriculation i on s.code = i.station
-        left join "SQQA_2".position p on s.code = p.station
-        left join "SQQA_2".distribution d on s.code = d.station
+        from "SSQA_2".station s
+        left join "SSQA_2".nom_station ns on s.code = ns.code
+        left join "SSQA_2".immatriculation i on s.code = i.station
+        left join "SSQA_2".position p on s.code = p.station
+        left join "SSQA_2".distribution d on s.code = d.station
         where s.code = i_station_code and p.fin is null;
     $$;
 
@@ -113,14 +113,14 @@ create or replace function station_eva_unique(
 -- @return les périodes d'indisponibilité de la station.
 --
 create or replace function station_eva_hs(
-    i_station_code "SQQA_2".station_code
+    i_station_code "SSQA_2".station_code
     )
     returns table (
-        station "SQQA_2".station_code,
-        debut "SQQA_2".estampille,
-        fin "SQQA_2".estampille,
-        nature "SQQA_2".hors_service_code,
-        description "SQQA_2".description_hors_service
+        station "SSQA_2".station_code,
+        debut "SSQA_2".estampille,
+        fin "SSQA_2".estampille,
+        nature "SSQA_2".hors_service_code,
+        description "SSQA_2".description_hors_service
     )
     language sql as
     $$
@@ -130,8 +130,8 @@ create or replace function station_eva_hs(
             hs.fin,
             nhs.code,
             nhs.description
-        from "SQQA_2".hors_service hs
-        join "SQQA_2".nature_hors_service nhs on nhs.code = hs.nature
+        from "SSQA_2".hors_service hs
+        join "SSQA_2".nature_hors_service nhs on nhs.code = hs.nature
         where station = i_station_code;
     $$;
 
@@ -144,13 +144,13 @@ create or replace function station_eva_hs(
 -- @return les capacités de la station.
 --
 create or replace function station_eva_capacite(
-    i_station_code "SQQA_2".station_code
+    i_station_code "SSQA_2".station_code
     )
-    returns "SQQA_2".capacite
+    returns "SSQA_2".capacite
     language sql as
     $$
         select *
-        from "SQQA_2".capacite
+        from "SSQA_2".capacite
         where station = i_station_code;
     $$;
 
@@ -164,18 +164,18 @@ create or replace function station_eva_capacite(
 -- @param i_station_altitude l'altitude de la station.
 --
 create or replace procedure station_mod_pos(
-    i_station_code "SQQA_2".station_code,
-    i_station_latitude "SQQA_2".latitude,
-    i_station_longitude "SQQA_2".longitude,
-    i_station_altitude "SQQA_2".altitude
+    i_station_code "SSQA_2".station_code,
+    i_station_latitude "SSQA_2".latitude,
+    i_station_longitude "SSQA_2".longitude,
+    i_station_altitude "SSQA_2".altitude
     )
     language sql as
     $$
-        update "SQQA_2".position
+        update "SSQA_2".position
         set fin = now()
         where station = i_station_code and position.fin is null;
 
-        insert into "SQQA_2".position
+        insert into "SSQA_2".position
         values (
             i_station_code,
             i_station_latitude,
@@ -199,27 +199,27 @@ create or replace procedure station_mod_pos(
 -- @param i_station_distribution la distribution de la station.
 --
 create or replace procedure station_ins_mobile_sst(
-    i_station_code "SQQA_2".station_code,
-    i_station_immatriculation_code "SQQA_2".immatriculation_code,
-    i_station_latitude "SQQA_2".latitude,
-    i_station_longitude "SQQA_2".longitude,
-    i_station_altitude "SQQA_2".altitude,
-    i_station_nom "SQQA_2".station_nom,
-    i_station_distribution "SQQA_2".distribution
+    i_station_code "SSQA_2".station_code,
+    i_station_immatriculation_code "SSQA_2".immatriculation_code,
+    i_station_latitude "SSQA_2".latitude,
+    i_station_longitude "SSQA_2".longitude,
+    i_station_altitude "SSQA_2".altitude,
+    i_station_nom "SSQA_2".station_nom,
+    i_station_distribution "SSQA_2".distribution
     )
     language sql as
     $$
-        insert into "SQQA_2".station
+        insert into "SSQA_2".station
         values (i_station_code,
                 now(),
                 null,
                 true);
 
-        insert into "SQQA_2".immatriculation
+        insert into "SSQA_2".immatriculation
         values (i_station_code,
                 i_station_immatriculation_code);
 
-        insert into "SQQA_2".position
+        insert into "SSQA_2".position
         values (i_station_code,
                 i_station_latitude,
                 i_station_longitude,
@@ -227,11 +227,11 @@ create or replace procedure station_ins_mobile_sst(
                 now(),
                 null);
 
-        insert into "SQQA_2".nom_station
+        insert into "SSQA_2".nom_station
         values (i_station_code,
                 i_station_nom);
 
-        insert into "SQQA_2".distribution
+        insert into "SSQA_2".distribution
         values (i_station_code,
                 i_station_distribution);
     $$;
@@ -249,35 +249,35 @@ create or replace procedure station_ins_mobile_sst(
 -- @param i_station_altitude l'altitude de la station (optionnel).
 --
 create or replace procedure station_ins_fixe_sst(
-    i_station_code "SQQA_2".station_code,
-    i_station_immatriculation_code "SQQA_2".immatriculation_code,
-    i_station_distribution "SQQA_2".distribution,
-    i_station_nom "SQQA_2".station_nom default null,
-    i_station_latitude "SQQA_2".latitude default null,
-    i_station_longitude "SQQA_2".longitude default null,
-    i_station_altitude "SQQA_2".altitude default null
+    i_station_code "SSQA_2".station_code,
+    i_station_immatriculation_code "SSQA_2".immatriculation_code,
+    i_station_distribution "SSQA_2".distribution,
+    i_station_nom "SSQA_2".station_nom default null,
+    i_station_latitude "SSQA_2".latitude default null,
+    i_station_longitude "SSQA_2".longitude default null,
+    i_station_altitude "SSQA_2".altitude default null
     )
     language sql as
     $$;
-        insert into "SQQA_2".station
+        insert into "SSQA_2".station
         values (i_station_code,
                 now(),
                 null,
                 false);
 
-        insert into "SQQA_2".immatriculation
+        insert into "SSQA_2".immatriculation
         values (i_station_code,
                 i_station_immatriculation_code);
 
-        insert into "SQQA_2".nom_station
+        insert into "SSQA_2".nom_station
         values (i_station_code,
                 i_station_nom);
 
-        insert into "SQQA_2".distribution
+        insert into "SSQA_2".distribution
         values (i_station_code,
                 i_station_distribution);
 
-        insert into "SQQA_2".position
+        insert into "SSQA_2".position
         values (i_station_code,
                 i_station_latitude,
                 i_station_longitude,
@@ -294,12 +294,12 @@ create or replace procedure station_ins_fixe_sst(
 -- @param i_variable_code le code de la variable.
 --
 create or replace procedure station_ins_capacite(
-    i_station_code "SQQA_2".station_code,
-    i_variable_code "SQQA_2".variable_code
+    i_station_code "SSQA_2".station_code,
+    i_variable_code "SSQA_2".variable_code
     )
     language sql as
     $$
-        insert into "SQQA_2".capacite
+        insert into "SSQA_2".capacite
         values (
             i_station_code,
             i_variable_code
@@ -313,12 +313,12 @@ create or replace procedure station_ins_capacite(
 -- @param i_station_code l'identifiant de la station.
 --
 create or replace procedure station_ret_gen_sst(
-    i_station_code "SQQA_2".station_code
+    i_station_code "SSQA_2".station_code
     )
     language sql as
     $$
         delete
-        from "SQQA_2".station
+        from "SSQA_2".station
         where code = i_station_code;
     $$;
 
@@ -330,13 +330,13 @@ create or replace procedure station_ret_gen_sst(
 -- @param i_variable_code le code de la variable.
 --
 create or replace procedure station_ret_capacite(
-    i_station_code "SQQA_2".station_code,
-    i_variable_code "SQQA_2".variable_code
+    i_station_code "SSQA_2".station_code,
+    i_variable_code "SSQA_2".variable_code
     )
     language sql as
     $$
         delete
-        from "SQQA_2".capacite
+        from "SSQA_2".capacite
         where station = i_station_code
         and variable = i_variable_code;
     $$;
@@ -353,6 +353,6 @@ Tâches réalisées :
   2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les stations.
 
 -- -----------------------------------------------------------------------------
--- 3.2.0_SQQA_2_EMIR_Station.sql
+-- 3.2.0_SSQA_2_EMIR_Station.sql
 -- =========================================================================== Z
 */

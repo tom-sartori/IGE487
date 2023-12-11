@@ -167,7 +167,7 @@ create table Norme (
 
 -- Validation
 
-create table validation (
+create table Validation (
   variable Variable_Code not null,
   norme Norme_code not null,
   min Mesure_Valeur not null,
@@ -213,7 +213,7 @@ create table Territoire (
 create domain Station_Nom
   Text
   check (length(value) between 1 and 63);
-create domain Station_Immatriculation
+create domain immatriculation_code
     Text
     check (length(value) between 1 and 15);
 create domain station_code
@@ -261,7 +261,7 @@ create table Position (
 -- immatriculation
 create table immatriculation(
     station station_code not null,
-    immatriculation Station_Immatriculation not null,
+    immatriculation immatriculation_code not null,
     constraint immatriculation_cc0 primary key (station, immatriculation),
     constraint immatriculation_cr0 foreign key (station) references Station(code)
     );

@@ -1,6 +1,6 @@
 /*
 -- =========================================================================== A
--- 3.3.0_SQQA_2_EMIR_Mesure.sql
+-- 3.3.0_SSQA_2_EMIR_Mesure.sql
 -- ---------------------------------------------------------------------------
 Activité : IFT187_2023-1
 Encodage : UTF-8, CRLF
@@ -13,8 +13,8 @@ Résumé : Ajout des procédures et fonctions EMIR pour les mesures.
 */
 
 -- Définition du schéma
-create schema if not exists "SQQA_2_PUB";
-set schema 'SQQA_2_PUB';
+create schema if not exists "SSQA_2_PUB";
+set schema 'SSQA_2_PUB';
 
 -- mesure_eva_gen
 --
@@ -23,11 +23,11 @@ set schema 'SQQA_2_PUB';
 -- @return toutes les mesures
 --
 create or replace function mesure_eva_gen()
-    returns setof "SQQA_2".mesure
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure;
+        from "SSQA_2".mesure;
     $$;
 
 -- mesure_eva_stat
@@ -37,12 +37,12 @@ create or replace function mesure_eva_gen()
 -- @param i_station_id code de la station
 -- @return toutes les mesures d'une station
 --
-create or replace function mesure_eva_stat(i_station_id "SQQA_2".station_code)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat(i_station_id "SSQA_2".station_code)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id;
     $$;
 
@@ -53,12 +53,12 @@ create or replace function mesure_eva_stat(i_station_id "SQQA_2".station_code)
 -- @param i_variable_id code de la variable
 -- @return toutes les mesures d'une variable
 --
-create or replace function mesure_eva_var(i_variable_id "SQQA_2".variable_code)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_var(i_variable_id "SSQA_2".variable_code)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where variable = i_variable_id;
     $$;
 
@@ -69,12 +69,12 @@ create or replace function mesure_eva_var(i_variable_id "SQQA_2".variable_code)
 -- @param i_date date de la mesure
 -- @return toutes les mesures pour une date
 --
-create or replace function mesure_eva_date(i_date "SQQA_2".estampille)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_date(i_date "SSQA_2".estampille)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where moment = i_date;
     $$;
 
@@ -86,12 +86,12 @@ create or replace function mesure_eva_date(i_date "SQQA_2".estampille)
 -- @param i_date date de la mesure
 -- @return toutes les mesures d'une station pour une date
 --
-create or replace function mesure_eva_stat_date(i_station_id "SQQA_2".station_code, i_date "SQQA_2".estampille)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat_date(i_station_id "SSQA_2".station_code, i_date "SSQA_2".estampille)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id
         and moment = i_date;
     $$;
@@ -104,12 +104,12 @@ create or replace function mesure_eva_stat_date(i_station_id "SQQA_2".station_co
 -- @param i_variable_id code de la variable
 -- @return toutes les mesures d'une station pour une variable
 --
-create or replace function mesure_eva_stat_var(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat_var(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id
         and variable = i_variable_id;
     $$;
@@ -123,12 +123,12 @@ create or replace function mesure_eva_stat_var(i_station_id "SQQA_2".station_cod
 -- @param i_date date de la mesure
 -- @return la mesure d'une station pour une variable et une date
 --
-create or replace function mesure_eva_stat_var_date(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat_var_date(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id
         and variable = i_variable_id
         and moment = i_date;
@@ -143,12 +143,12 @@ create or replace function mesure_eva_stat_var_date(i_station_id "SQQA_2".statio
 -- @param i_date date minimale des mesures
 -- @return toutes les mesures d'une station pour une variable et après une date
 --
-create or replace function mesure_eva_stat_var_after_date(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat_var_after_date(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id
         and variable = i_variable_id
         and moment >= i_date;
@@ -164,12 +164,12 @@ create or replace function mesure_eva_stat_var_after_date(i_station_id "SQQA_2".
 -- @param i_date_max date maximale des mesures
 -- @return toutes les mesures d'une station pour une variable et entre deux dates
 --
-create or replace function mesure_eva_stat_var_between_date(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date_min "SQQA_2".estampille, i_date_max "SQQA_2".estampille)
-    returns setof "SQQA_2".mesure
+create or replace function mesure_eva_stat_var_between_date(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date_min "SSQA_2".estampille, i_date_max "SSQA_2".estampille)
+    returns setof "SSQA_2".mesure
     language sql as
     $$
         select *
-        from "SQQA_2".mesure
+        from "SSQA_2".mesure
         where station = i_station_id
         and variable = i_variable_id
         and moment >= i_date_min
@@ -185,10 +185,10 @@ create or replace function mesure_eva_stat_var_between_date(i_station_id "SQQA_2
 -- @param i_date date de la mesure
 -- @param i_valeur nouvelle valeur de la mesure
 --
-create or replace procedure mesure_mod_gen_sst_exs(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille, i_valeur "SQQA_2".mesure_valeur)
+create or replace procedure mesure_mod_gen_sst_exs(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille, i_valeur "SSQA_2".mesure_valeur)
     language sql as
     $$
-        update "SQQA_2".mesure
+        update "SSQA_2".mesure
         set valeur = i_valeur
         where station = i_station_id
         and variable = i_variable_id
@@ -204,17 +204,17 @@ create or replace procedure mesure_mod_gen_sst_exs(i_station_id "SQQA_2".station
 -- @param i_date date de la mesure
 -- @param i_valeur valeur de la mesure
 --
-create or replace procedure mesure_ins_gen_sst_exs(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille, i_valeur "SQQA_2".mesure_valeur, i_norme "SQQA_2".norme_code)
+create or replace procedure mesure_ins_gen_sst_exs(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille, i_valeur "SSQA_2".mesure_valeur, i_norme "SSQA_2".norme_code)
     language sql as
     $$
-        insert into "SQQA_2".mesure (station, variable, moment, valeur)
+        insert into "SSQA_2".mesure (station, variable, moment, valeur)
         values (i_station_id, i_variable_id, i_date, i_valeur);
 
-        insert into "SQQA_2".erreur_mesure (station, variable, moment, erreur_mesure_code)
+        insert into "SSQA_2".erreur_mesure (station, variable, moment, erreur_mesure_code)
         select i_station_id, i_variable_id, i_date, 1
         where not exists (
             select *
-            from "SQQA_2".validation
+            from "SSQA_2".validation
             where variable = i_variable_id
             and norme = i_norme
             and min <= i_valeur
@@ -232,13 +232,13 @@ create or replace procedure mesure_ins_gen_sst_exs(i_station_id "SQQA_2".station
 -- @param i_valeur valeur de la mesure
 -- @param i_erreur_mesure_code code de l'erreur de mesure
 --
-create or replace procedure mesure_ins_with_error(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille, i_valeur "SQQA_2".mesure_valeur, i_erreur_mesure_code "SQQA_2".code_erreur_mesure)
+create or replace procedure mesure_ins_with_error(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille, i_valeur "SSQA_2".mesure_valeur, i_erreur_mesure_code "SSQA_2".code_erreur_mesure)
     language sql as
     $$
-        insert into "SQQA_2".mesure (station, variable, moment, valeur)
+        insert into "SSQA_2".mesure (station, variable, moment, valeur)
         values (i_station_id, i_variable_id, i_date, i_valeur);
 
-        insert into "SQQA_2".erreur_mesure (station, variable, moment, erreur_mesure_code)
+        insert into "SSQA_2".erreur_mesure (station, variable, moment, erreur_mesure_code)
         values (i_station_id, i_variable_id, i_date, i_erreur_mesure_code);
     $$;
 
@@ -250,10 +250,10 @@ create or replace procedure mesure_ins_with_error(i_station_id "SQQA_2".station_
 -- @param i_variable_id code de la variable
 -- @param i_date date de la mesure
 --
-create or replace procedure mesure_ret_gen_sst_exs(i_station_id "SQQA_2".station_code, i_variable_id "SQQA_2".variable_code, i_date "SQQA_2".estampille)
+create or replace procedure mesure_ret_gen_sst_exs(i_station_id "SSQA_2".station_code, i_variable_id "SSQA_2".variable_code, i_date "SSQA_2".estampille)
     language sql as
     $$
-        delete from "SQQA_2".mesure
+        delete from "SSQA_2".mesure
         where station = i_station_id
         and variable = i_variable_id
         and moment = i_date;
@@ -271,6 +271,6 @@ Tâches réalisées :
   2023-10-11 (capl1101, sart0701, thea1804, turr3004) : Ajout des procédures et fonctions EMIR pour les mesures.
 
 -- -----------------------------------------------------------------------------
--- 3.3.0_SQQA_2_EMIR_Mesure.sql
+-- 3.3.0_SSQA_2_EMIR_Mesure.sql
 -- =========================================================================== Z
 */

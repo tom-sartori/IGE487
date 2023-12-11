@@ -36,7 +36,7 @@ insert into capacite (station, variable) values
   -- autres territoires (à venir)
 
 -- Exigence
-insert into exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
+insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
   -- Diaoxyde d'azote
     ('NCQAA_2020', 'A1', 'NO2', 1, 'h', 0, 60),
     ('NCQAA_2025', 'A1', 'NO2', 1, 'h', 0, 42),
@@ -58,22 +58,22 @@ insert into exigence (norme, code, variable, periode_valeur, periode_unite, min,
     ('NCQAA_2025', 'D1', 'O3', 8, 'h', 0, 60);
 
 -- Validation
-insert into validation (variable, norme, min, max) values
+insert into Validation (variable, norme, min, max) values
   ('NO2', 'NQMAA_2014', 0, 600),
   ('SO2', 'NQMAA_2014', 0, 700),
   ('CO', 'NQMAA_2014', 0, 100),
   ('PM25', 'NQMAA_2014', 0, 200),
-  ('O3', 'NQMAA_2014', 0, 800);
+  ('O3', 'NQMAA_2014', 0, 800),
   ('NO2', 'NCQAA_2015', 0, 600),
   ('SO2', 'NCQAA_2015', 0, 700),
   ('CO', 'NCQAA_2015', 0, 100),
   ('PM25', 'NCQAA_2015', 0, 200),
-  ('O3', 'NCQAA_2015', 0, 800);
+  ('O3', 'NCQAA_2015', 0, 800),
   ('NO2', 'NCQAA_2020', 0, 600),
   ('SO2', 'NCQAA_2020', 0, 700),
   ('CO', 'NCQAA_2020', 0, 100),
   ('PM25', 'NCQAA_2020', 0, 200),
-  ('O3', 'NCQAA_2020', 0, 800);
+  ('O3', 'NCQAA_2020', 0, 800),
   ('NO2', 'NCQAA_2025', 0, 600),
   ('SO2', 'NCQAA_2025', 0, 700),
   ('CO', 'NCQAA_2025', 0, 100),
