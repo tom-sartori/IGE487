@@ -12,6 +12,11 @@ Résumé : Modification des procédures EMIR d'ajout de mesures, afin qu'elles i
 -- =========================================================================== A
 */
 
+-- Définition du schéma
+create schema if not exists "SSQA_PUB";
+set schema 'SSQA_PUB';
+
+
 --mesure_ins_gen_sst_exs
 --
 -- Procédure d'insertion d'une mesure. Si la valeur de la variable n'est pas comprise dans l'intervalle de la table validation pour cette variable et la norme choisie, une entrée est ajoutée dans la table erreur_mesure avec le code d'erreur 1.
