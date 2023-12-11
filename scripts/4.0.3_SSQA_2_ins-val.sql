@@ -94,7 +94,7 @@ insert into Station (code, debut, fin , mobilite) values
 (04021, '2014-07-23', null, false),
 (04048, '1975-08-12', null, false),
 (04049, '1985-04-19', '2014-10-14', false);
-(04052, '1985-04-01', null, false);
+
 
 insert into immatriculation (code , immatriculation) values
 (04019, 'Trois-Rivières - Ursulines'),
@@ -102,7 +102,7 @@ insert into immatriculation (code , immatriculation) values
 (04021, 'Trois-Rivières - École MEES'),
 (04048, 'Trois-Rivières - Cap-de-la-Madeleine'),
 (04049, 'Trois-Rivières - Éc. l''Assomption');
-(04052, 'Trois-Rivières - Rés. Louis-Denoncourt');
+
 
 insert into position (code, latitude, longitude, altitude) values
 (04019, 46.3464, -72.537554, null),
@@ -110,7 +110,7 @@ insert into position (code, latitude, longitude, altitude) values
 (04021, 46.357211, -72.54612, null),
 (04048, 46.3625, -72.51, null),
 (04049, 46.369909, -72.514422, null);
-(04052, 46.34, -72.54611111, null);
+
 
 insert into nom_station (code, nom) values
 (04019, 'Face au 678, rue Hart'),
@@ -118,7 +118,7 @@ insert into nom_station (code, nom) values
 (04021, 'Rue Whitehead'),
 (04048, 'Inters. Roy et Dorval'),
 (04049, '275 Montplaisir');
-(04052, '435, St-Roch');
+
 
 insert into territoire (code, nom) values
 (04, 'Trois-Rivières');
@@ -129,7 +129,7 @@ insert into distribution (territoire, station) values
 (04, 04021),
 (04, 04048),
 (04, 04049);
-(04, 04052);
+
 
 insert into capacite (station, variable) values
 (04019, 'NO2'),
