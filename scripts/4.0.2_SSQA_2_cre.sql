@@ -123,14 +123,6 @@ create table Unite (
     constraint Unite_mult_positif check (mult > 0)
 );
 
--- Composition_unite
-create table Composition_unite(
-    exposant unite_coef not null,
-    sym Unite_Symbole not null,
-    sym_unite Unite_Symbole not null,
-    
-    );
-
 -- Unite_fond
 --
 -- L'unité fondamentale est modélisée par un symbole et un nom.
@@ -227,8 +219,7 @@ create domain Station_Immatriculation
 create domain station_code
     Text
     check (length(value) between 1 and 15); 
-create domain estampille as
-timestamp
+create domain estampille as timestamp;
 
 -- Création attribut mobilité
 create domain Station_mobilite as boolean;
@@ -236,8 +227,8 @@ create table Station (
     code station_code not null,
     debut_service estampille not null,
     fin_service estampille,
-    mobile Station_mobilite not null,
-    constraint Station_cc0 primary key (code)
+    mobilite Station_mobilite not null,
+    constraint Station_cc0 primary key (code),
     constraint Station_cc1 unique (debut_service, fin_service)
     
     );
@@ -245,6 +236,17 @@ create table Station (
 --
 -- La position d'une station est modélisée par un code de station, une latitude, une longitude, une altitude, une date de début et une date de fin.
 --
+create domain Longitude -- en degrés angulaires
+  Mesure_Valeur
+  check (value between -180.0 and +180.0);
+create domain Latitude -- en degrés angulaires
+  Mesure_Valeur
+  check (value between -90.0 and +90.0);
+create domain Altitude -- en mètres, relativement au «niveau de la mer»
+  -- Les bornes sont issues de données expérimentales relativement à la planète Terre.
+  -- Mont Everest et Fosses des Mariannes.
+  Mesure_Valeur
+  check (value between -12000.0 and +9000.0);
 create table Position (
     station Station_Code not null,
     latitude Latitude not null,
@@ -265,7 +267,7 @@ create table immatriculation(
     );
 
 --station_nom
-create table station_nom(
+create table nom_station(
     code station_code not null,
     nom Station_Nom not null,
     constraint station_nom_cc0 primary key (code, nom),
@@ -481,10 +483,10 @@ commit transaction;
 -- Position
 begin transaction;
 set transaction read write;
-    alter table "SSQA".position
+    alter table "SSQA_2".position
     drop constraint Position_cr0;
 
-    alter table "SSQA".position
+    alter table "SSQA_2".position
     add constraint Position_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
 commit transaction;
 
@@ -495,7 +497,7 @@ set transaction read write;
     alter table "SSQA".immatriculation
     drop constraint immatriculation_cr0;
 
-    alter table "SSQA".immatriculation
+    alter table "SSQA_2".immatriculation
     add constraint immatriculation_cr0 foreign key (station) references Station (code) on delete cascade on update cascade;
 commit transaction;
 
@@ -503,10 +505,10 @@ commit transaction;
 -- Nom_station
 begin transaction;
 set transaction read write;
-    alter table "SSQA".nom_station
+    alter table "SSQA_2".nom_station
     drop constraint Nom_station_cr0;
 
-    alter table "SSQA".nom_station
+    alter table "SSQA_2".nom_station
     add constraint Nom_station_cr0 foreign key (code) references Station (code) on delete cascade on update cascade;
 commit transaction;
 
@@ -573,7 +575,7 @@ begin
     if mobilite then
         insert into station(code, debut_service, fin_service, mobilite)
         values (code, debut_service, fin_service, mobilite);
-        insert into nom_station(code, nom) 
+        insert into nom_station(code, nom)
         values (code, nom);
     else
         insert into station(code, debut_service, fin_service, mobilite)

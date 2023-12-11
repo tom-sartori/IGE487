@@ -1,5 +1,5 @@
 -- Unite
-insert into Unite (sym, nom) values
+insert into unite (sym, nom) values
   ('s', 'seconde'),
   ('h', 'heure'),
   ('a', 'année'),
@@ -23,7 +23,7 @@ insert into Norme (code, titre) values
   ('NCQAA_2025', 'Normes canadiennes de qualité de l’air ambiant, édition 2025');
 
 -- Capacité
-insert into Capacite (station, variable) values
+insert into capacite (station, variable) values
   -- Territoire de Sherbrooke (données fictives)
   -- Noter que la station 16000 n'a pas la capcité de retourner des mesures de la variable O3.
     ('10000', 'NO2'), ('10000', 'SO2'), ('10000', 'CO'), ('10000', 'PM25'), ('10000', 'O3'),
@@ -36,7 +36,7 @@ insert into Capacite (station, variable) values
   -- autres territoires (à venir)
 
 -- Exigence
-insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
+insert into exigence (norme, code, variable, periode_valeur, periode_unite, min, max) values
   -- Diaoxyde d'azote
     ('NCQAA_2020', 'A1', 'NO2', 1, 'h', 0, 60),
     ('NCQAA_2025', 'A1', 'NO2', 1, 'h', 0, 42),
@@ -58,7 +58,7 @@ insert into Exigence (norme, code, variable, periode_valeur, periode_unite, min,
     ('NCQAA_2025', 'D1', 'O3', 8, 'h', 0, 60);
 
 -- Validation
-insert into Validation (variable, norme, min, max) values
+insert into validation (variable, norme, min, max) values
   ('NO2', 'NQMAA_2014', 0, 600),
   ('SO2', 'NQMAA_2014', 0, 700),
   ('CO', 'NQMAA_2014', 0, 100),
@@ -88,7 +88,7 @@ insert into Validation (variable, norme, min, max) values
 04048,Trois-Rivières - Cap-de-la-Madeleine,04,Inters. Roy et Dorval,Trois-Rivières,URBAIN,1975-08-12,,46.3625,-72.51
 04049,Trois-Rivières - Éc. l'Assomption,04,275 Montplaisir,Trois-Rivières,URBAIN,1985-04-19,2014-10-14,46.369909,-72.514422
 */
-insert into Station (code, debut, fin , mobilite) values
+insert into station (code, debut, fin , mobilite) values
 (04019, '1975-06-18', '2011-06-28', false),
 (04020, '2011-08-26', '2014-06-25', false),
 (04021, '2014-07-23', null, false),
