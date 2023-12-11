@@ -340,7 +340,6 @@ mesure_ins_gen_sst_exs(04048, 'PM25', 2022-02-25 02:00, 14.0022 , 'NCQAA_2020');
 mesure_ins_gen_sst_exs(04048, 'PM25', 2022-02-25 03:00, 10.5072 , 'NCQAA_2020');
 mesure_ins_gen_sst_exs(04048, 'PM25', 2022-02-25 04:00, 7.306 , 'NCQAA_2020');
 mesure_ins_gen_sst_exs(04048, 'PM25', 2022-02-25 05:00, 5.7327 , 'NCQAA_2020');
---fait les meme chose pour la station 04021 selon les infos en commentaire en haut de page
 mesures_ins_gen_sst_exs(04021, 'SO2', 2021-02-13 16:00, 0.0582 , 'NQAA_2020');
 mesures_ins_gen_sst_exs(04021, 'SO2', 2021-02-13 17:00, 0.1117 , 'NQAA_2020');
 mesures_ins_gen_sst_exs(04021, 'SO2', 2021-02-13 18:00, 0.2098 , 'NQAA_2020');
