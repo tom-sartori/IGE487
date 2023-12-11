@@ -22,8 +22,8 @@ CREATE TABLE Mesure_valide_fait
     "moment"    "SSQA".estampille,
     "variable"  "SSQA".variable_code,
     "valeur"    "SSQA".mesure_valeur NOT NULL,
-    "longitude" "SSQA".longitude     NOT NULL,
     "latitude"  "SSQA".latitude      NOT NULL,
+    "longitude" "SSQA".longitude     NOT NULL,
     "altitude"  "SSQA".altitude      NOT NULL,
     PRIMARY KEY ("station", "moment", "variable")
 );
@@ -34,8 +34,8 @@ CREATE TABLE Mesure_invalide_fait
     "moment"                    "SSQA".estampille,
     "variable"                  "SSQA".variable_code,
     "valeur"                    "SSQA".mesure_valeur             NOT NULL,
-    "longitude"                 "SSQA".longitude                 NOT NULL,
     "latitude"                  "SSQA".latitude                  NOT NULL,
+    "longitude"                 "SSQA".longitude                 NOT NULL,
     "altitude"                  "SSQA".altitude                  NOT NULL,
     "erreur_mesure_code"        "SSQA".Code_erreur_mesure        NOT NULL,
     "erreur_mesure_description" "SSQA".description_erreur_mesure NOT NULL,
@@ -56,9 +56,9 @@ CREATE UNIQUE INDEX "Variable_cc1" ON "variable" ("nom");
 CREATE TABLE Station
 (
     "code"          "SSQA".station_code     NOT NULL,
-    "debut_service" "SSQA".estampille       NOT NULL,
+    "debut_service" "SSQA".estampille,
     "fin_service"   "SSQA".estampille,
-    "mobilite"      "SSQA".station_mobilite NOT NULL,
+    "mobilite"      "SSQA".station_mobilite,
     PRIMARY KEY ("code")
 );
 

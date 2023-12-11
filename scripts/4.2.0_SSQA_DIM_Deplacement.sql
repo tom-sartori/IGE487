@@ -20,12 +20,12 @@ CREATE TABLE Deplacement_fait
 (
     "station"           "SSQA".station_code,
     "debut_deplacement" "SSQA".estampille,
-    "temps_deplacement" "SSQA".estampille,
-    "longitude_depart"  "SSQA".longitude NOT NULL,
+    "temps_deplacement" interval,
     "latitude_depart"   "SSQA".latitude  NOT NULL,
+    "longitude_depart"  "SSQA".longitude NOT NULL,
     "altitude_depart"   "SSQA".altitude  NOT NULL,
-    "longitude_fin"     "SSQA".longitude,
     "latitude_fin"      "SSQA".latitude,
+    "longitude_fin"     "SSQA".longitude,
     "altitude_fin"      "SSQA".altitude,
     PRIMARY KEY ("station", "debut_deplacement")
 );

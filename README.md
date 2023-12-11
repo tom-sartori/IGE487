@@ -9,6 +9,10 @@
 |   Raphael Turcotte    | turr3004 |     [raphael.turcotte2@usherbrooke.ca](mailto:raphael.turcotte2@usherbrooke.ca)     |
 |      Tom Sartori      | sart0701 |           [tom.sartori@usherbrooke.ca](mailto:tom.sartori@usherbrooke.ca)           |
 
+## Installation
+
+Une concaténation des différents scripts est disponible dans le fichier `scripts/full_script.sql`. Il permet d'avoir la version finale de la base de données. Il comporte certains tests de valeurs invalies et il faut donc le lancer en ignorant les warnings. 
+
 ## Note technique
 
 L'intégralité des scripts sql sont disponibles dans le sous dossier `scripts` du projet.
