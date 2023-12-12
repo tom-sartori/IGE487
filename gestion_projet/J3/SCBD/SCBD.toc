@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {2}Présentation générale du résultat}{3}{}%
+\contentsline {section}{\numberline {3}Choix de conception}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Intégration de plusieurs sources de données}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Choix des processus à inclure dans l'entrepôt}{3}{}%
+\contentsline {subsection}{\numberline {3.3}Modifications de l'API}{5}{}%
+\contentsline {subsection}{\numberline {3.4}Peuplement des bases de données}{6}{}%
