@@ -13,8 +13,8 @@ Résumé : Suppression des données inutiles dans le schéma SSQA_2.
 */
 
 -- Définition du schéma
-create schema if not exists "SSQA_2_PUB";
-set schema 'SSQA_2_PUB';
+create schema if not exists "SSQA_2";
+set schema 'SSQA_2';
 
 delete from Mesure ;
 delete from distribution ;                  --

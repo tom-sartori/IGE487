@@ -13,6 +13,10 @@ Résumé : Insertion des données dans le schéma SSQA_2.
 -- =========================================================================== A
 */
 
+-- Définition du schéma
+create schema if not exists "SSQA_2";
+set schema 'SSQA_2';
+
 -- Station
 /* inserer ces valeurs dans la table station
 04019,Trois-Rivières - Ursulines,04,"Face au 678, rue Hart",Trois-Rivières,URBAIN,1975-06-18,2011-06-28,46.3464,-72.537554
